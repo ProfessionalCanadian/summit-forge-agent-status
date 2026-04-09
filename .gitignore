@@ -1,0 +1,11 @@
+# Generated images (will be replaced with final versions)
+images/*/awake.jpg
+images/*/test_card.jpg
+
+# Generation scripts (internal tooling)
+gen_images.py
+gen_test.py
+
+# Internal docs
+TEAM_WELCOME.md
+IMAGE_PROMPTS.md

@@ -1,0 +1,89 @@
+{
+  "last_updated": "2026-04-09T20:00:00Z",
+  "agents": [
+    {
+      "id": "oscar",
+      "name": "Oscar",
+      "role": "Orchestrator",
+      "specialty": "Planning, delegation, and team coordination",
+      "model": "claude-sonnet-4-6",
+      "status": "awake",
+      "health": "good",
+      "current_task": "Kicking off Agent Status Page project",
+      "last_seen": "2026-04-09T20:00:00Z",
+      "notes": ""
+    },
+    {
+      "id": "vera",
+      "name": "Vera",
+      "role": "Fact Checker & Research",
+      "specialty": "Verification, sourcing, and evidence-backed research",
+      "model": "gpt-5.4",
+      "status": "standby",
+      "health": "good",
+      "current_task": null,
+      "last_seen": null,
+      "notes": ""
+    },
+    {
+      "id": "forge",
+      "name": "Forge",
+      "role": "Coding Agent",
+      "specialty": "Implementation, refactors, and technical precision",
+      "model": "gpt-5.4",
+      "status": "standby",
+      "health": "good",
+      "current_task": null,
+      "last_seen": null,
+      "notes": ""
+    },
+    {
+      "id": "sentinel",
+      "name": "Sentinel",
+      "role": "Security & Compliance",
+      "specialty": "Audit, risk assessment, and policy enforcement",
+      "model": "gpt-5.4",
+      "status": "standby",
+      "health": "good",
+      "current_task": null,
+      "last_seen": "2026-04-09T07:00:00Z",
+      "notes": "Daily audit completed"
+    },
+    {
+      "id": "scribe",
+      "name": "Scribe",
+      "role": "Operations & Documentation",
+      "specialty": "Record-keeping, changelogs, and operational truth",
+      "model": "claude-opus-4-6",
+      "status": "standby",
+      "health": "good",
+      "current_task": null,
+      "last_seen": "2026-04-09T17:00:00Z",
+      "notes": "Midday sync completed"
+    },
+    {
+      "id": "probe",
+      "name": "Probe",
+      "role": "QA & Verification",
+      "specialty": "Independent output review and adversarial testing",
+      "model": "gpt-5.4-mini",
+      "status": "standby",
+      "health": "good",
+      "current_task": null,
+      "last_seen": null,
+      "notes": ""
+    },
+    {
+      "id": "ledger",
+      "name": "Ledger",
+      "role": "AI Monetization",
+      "specialty": "Revenue opportunity identification and feasibility scoring",
+      "model": "gpt-5.4",
+      "status": "offline",
+      "health": "paused",
+      "current_task": null,
+      "last_seen": null,
+      "notes": "Daily brief paused — pending re-enable"
+    }
+  ]
+}
