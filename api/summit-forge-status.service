@@ -1,0 +1,16 @@
+[Unit]
+Description=Summit Forge Labs Agent Status API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/data/.openclaw/workspace/projects/status-page/api
+ExecStart=/data/.openclaw/workspace/projects/status-page/api/start.sh
+Restart=on-failure
+RestartSec=5
+Environment=STATUS_API_HOST=0.0.0.0
+Environment=STATUS_API_PORT=8743
+Environment=STATUS_API_FALLBACK_PORT=8744
+
+[Install]
+WantedBy=multi-user.target

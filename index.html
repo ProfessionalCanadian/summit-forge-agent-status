@@ -72,7 +72,7 @@
     .shell {
       width: min(calc(100% - 32px), var(--max-width));
       margin: 0 auto;
-      padding: 28px 0 48px;
+      padding: 28px 0 56px;
     }
 
     .hero,
@@ -103,11 +103,11 @@
     }
 
     .hero {
-      padding: 28px;
+      padding: 32px;
       display: grid;
       grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.8fr);
-      gap: 24px;
-      margin-bottom: 22px;
+      gap: 28px;
+      margin-bottom: 18px;
     }
 
     .eyebrow,
@@ -123,7 +123,7 @@
       display: flex;
       align-items: center;
       gap: 18px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .brand-mark {
@@ -135,9 +135,9 @@
     }
 
     .hero h1 {
-      margin: 10px 0 12px;
+      margin: 12px 0 14px;
       font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 0.96;
+      line-height: 0.92;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       max-width: 10ch;
@@ -148,11 +148,11 @@
     }
 
     .hero-copy {
-      max-width: 62ch;
+      max-width: 44ch;
       color: var(--text-soft);
       font-size: 15px;
-      line-height: 1.65;
-      margin-bottom: 18px;
+      line-height: 1.55;
+      margin-bottom: 20px;
     }
 
     .hero-meta {
@@ -193,13 +193,13 @@
     .hero-side {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
       justify-content: space-between;
     }
 
     .status-well {
       position: relative;
-      padding: 20px;
+      padding: 20px 20px 18px;
       border-radius: var(--radius-lg);
       border: 1px solid rgba(201, 168, 76, 0.18);
       background:
@@ -229,7 +229,27 @@
     .status-well-sub {
       color: var(--text-soft);
       font-size: 14px;
-      line-height: 1.55;
+      line-height: 1.45;
+    }
+
+    .section-divider {
+      position: relative;
+      height: 1px;
+      margin: 6px 6px 20px;
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.48), rgba(202,210,221,0.2), transparent);
+    }
+
+    .section-divider::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(201,168,76,0.85) 0%, rgba(201,168,76,0.18) 45%, transparent 70%);
+      box-shadow: 0 0 24px rgba(201,168,76,0.3);
     }
 
     .overview {
@@ -240,7 +260,7 @@
     .overview-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      gap: 12px;
       margin-top: 14px;
     }
 
@@ -302,7 +322,7 @@
       display: flex;
       gap: 12px;
       align-items: flex-start;
-      padding: 14px;
+      padding: 15px 14px;
       border-radius: var(--radius-md);
       border: 1px solid var(--stroke);
       background: var(--panel-2);
@@ -335,11 +355,11 @@
       align-items: end;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .roster {
-      padding: 22px;
+      padding: 24px 22px 22px;
     }
 
     .roster-title {
@@ -352,13 +372,14 @@
     .roster-sub {
       color: var(--text-dim);
       font-size: 14px;
-      max-width: 58ch;
+      max-width: 46ch;
+      line-height: 1.55;
     }
 
     .agent-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
     .agent-card {
@@ -382,9 +403,10 @@
       left: 0;
       right: 0;
       top: 0;
-      height: 3px;
+      height: 5px;
       background: linear-gradient(90deg, rgba(255,255,255,0.12), currentColor 26%, rgba(255,255,255,0.1));
-      opacity: 0.9;
+      opacity: 1;
+      box-shadow: 0 0 20px color-mix(in srgb, currentColor 35%, transparent);
     }
 
     .agent-card.operational { color: var(--ok); }
@@ -395,7 +417,7 @@
       padding: 18px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       height: 100%;
     }
 
@@ -501,7 +523,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 12px 14px;
+      padding: 13px 14px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.07);
       background: rgba(255,255,255,0.025);
@@ -654,6 +676,8 @@
       color: var(--text-dim);
       font-size: 12px;
       text-align: right;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .status-operational { color: var(--ok); }
@@ -706,11 +730,11 @@
           <img class="brand-mark" src="./logo-transparent.jpg" alt="Summit Forge Labs logo" />
           <div>
             <div class="eyebrow">Summit Forge Labs</div>
-            <div style="font-size:13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; margin-top: 6px;">Precision agent operations</div>
+            <div style="font-size:13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; margin-top: 6px;">Forged oversight for every active mind</div>
           </div>
         </div>
         <h1>Agent <span>Status</span></h1>
-        <p class="hero-copy">A forged-panel live view of the Summit Forge Labs team. Overall condition is visible immediately, with each agent card exposing role, health, current task, recent activity, and last contact without visual noise.</p>
+        <p class="hero-copy">A live command surface for the Summit Forge Labs operator stack. Readiness, load, and recent motion, cut clean and visible at a glance.</p>
         <div class="hero-meta">
           <div class="chip live"><span class="dot"></span><span id="liveBadgeText">Live feed</span></div>
           <div class="chip"><span class="dot"></span><span id="agentCountChip">0 agents tracked</span></div>
@@ -724,11 +748,13 @@
         </div>
         <div class="status-well">
           <div class="status-well-label">Last update</div>
-          <div class="status-well-value" id="lastUpdatedText" style="font-size: clamp(1.4rem, 3vw, 2rem);">--</div>
-          <div class="status-well-sub" id="lastUpdatedSub">Timestamps will populate once telemetry is loaded.</div>
+          <div class="status-well-value" id="lastUpdatedText" style="font-size: clamp(1.15rem, 2.2vw, 1.7rem); line-height: 1.1;">--</div>
+          <div class="status-well-sub" id="lastUpdatedSub">Awaiting first telemetry stamp.</div>
         </div>
       </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <section class="overview">
       <div class="section-kicker">At a glance</div>
@@ -742,27 +768,27 @@
     </section>
 
     <section class="legend">
-      <div class="section-kicker">Status legend</div>
+      <div class="section-kicker">Readiness codes</div>
       <div class="legend-row">
         <div class="legend-chip">
           <div class="legend-swatch bg-operational"></div>
           <div>
             <div class="legend-title status-operational">Operational</div>
-            <div class="legend-copy">Stable, reachable, and healthy. Normal output expected.</div>
+            <div class="legend-copy">Locked in, reachable, and holding full working tolerance.</div>
           </div>
         </div>
         <div class="legend-chip">
           <div class="legend-swatch bg-degraded"></div>
           <div>
             <div class="legend-title status-degraded">Degraded</div>
-            <div class="legend-copy">Reachable but constrained, paused, or needing attention.</div>
+            <div class="legend-copy">Still on the board, but running under constraint, drift, or reduced tempo.</div>
           </div>
         </div>
         <div class="legend-chip">
           <div class="legend-swatch bg-offline"></div>
           <div>
             <div class="legend-title status-offline">Offline</div>
-            <div class="legend-copy">Unavailable or intentionally parked. No active output expected.</div>
+            <div class="legend-copy">Cold, parked, or unreachable. No output should be expected.</div>
           </div>
         </div>
       </div>
@@ -771,10 +797,10 @@
     <section class="roster">
       <div class="roster-head">
         <div>
-          <div class="section-kicker">Instrument panels</div>
-          <h2 class="roster-title">Team roster</h2>
+          <div class="section-kicker">Operator field</div>
+          <h2 class="roster-title">Agent deck</h2>
         </div>
-        <div class="roster-sub">Each card is tuned for fast scanning first, detail second. Health colors are reserved for status only. Gold, copper, and silver carry structure, hierarchy, and brand feel.</div>
+        <div class="roster-sub">Each card is built for rapid read, then detail. Status rails carry urgency. The rest stays quiet, sharp, and deliberate.</div>
       </div>
       <div class="agent-grid" id="agentGrid"></div>
       <div class="footer-note" id="footerNote">Status board idle.</div>
@@ -808,17 +834,17 @@
 
         <div class="meta-grid">
           <div class="meta-block">
-            <div class="meta-label">Current task</div>
+            <div class="meta-label">Current brief</div>
             <div class="meta-value meta-task"></div>
           </div>
           <div class="meta-block">
-            <div class="meta-label">Last seen</div>
+            <div class="meta-label">Last contact</div>
             <div class="meta-value meta-last-seen strong"></div>
           </div>
         </div>
 
         <div class="meta-block">
-          <div class="meta-label">Notes</div>
+          <div class="meta-label">Operator notes</div>
           <div class="meta-value meta-notes"></div>
         </div>
 
@@ -868,6 +894,20 @@
       return `${absolute} · ${diffDay}d ago`;
     }
 
+    function relativeOnly(iso) {
+      if (!iso) return 'No telemetry yet';
+      const date = new Date(iso);
+      if (Number.isNaN(date.getTime())) return 'Unknown timing';
+      const diffMs = Date.now() - date.getTime();
+      const diffMin = Math.round(diffMs / 60000);
+      if (Math.abs(diffMin) < 1) return 'Updated just now';
+      if (diffMin < 60) return `Updated ${diffMin} minute${diffMin === 1 ? '' : 's'} ago`;
+      const diffHr = Math.round(diffMin / 60);
+      if (diffHr < 24) return `Updated ${diffHr} hour${diffHr === 1 ? '' : 's'} ago`;
+      const diffDay = Math.round(diffHr / 24);
+      return `Updated ${diffDay} day${diffDay === 1 ? '' : 's'} ago`;
+    }
+
     function humanize(value) {
       return String(value || 'unknown').replace(/_/g, ' ').replace(/\b\w/g, s => s.toUpperCase());
     }
@@ -891,13 +931,13 @@
       };
 
       let overall = 'Operational';
-      let sub = `${counts.active} active, ${counts.online} online, ${counts.total} total agents tracked.`;
+      let sub = `${counts.active} in motion, ${counts.online} on the board, ${counts.total} tracked.`;
       if (counts.offline > 0) {
         overall = 'Mixed readiness';
-        sub = `${counts.offline} offline or paused. ${counts.active} active, ${counts.degraded} degraded.`;
+        sub = `${counts.offline} cold or paused. ${counts.active} in motion, ${counts.degraded} under reduced readiness.`;
       } else if (counts.degraded > 0) {
         overall = 'Degraded';
-        sub = `${counts.degraded} agents are in standby or reduced readiness. ${counts.active} active.`;
+        sub = `${counts.degraded} running below full tolerance. ${counts.active} still carrying active load.`;
       }
 
       return { counts, overall, sub };
@@ -908,22 +948,22 @@
         {
           label: 'Agents online',
           value: counts.online,
-          note: `${counts.active} currently awake or working.`
+          note: `${counts.active} carrying live workload.`
         },
         {
           label: 'Operational',
           value: counts.healthy,
-          note: 'Healthy agents ready for normal output.'
+          note: 'Clear to run at full pace.'
         },
         {
           label: 'Degraded',
           value: counts.degraded,
-          note: 'Standby, dreaming, or reduced-readiness agents.'
+          note: 'Available, but not at full edge.'
         },
         {
           label: 'Offline',
           value: counts.offline,
-          note: 'Parked, paused, or unavailable agents.'
+          note: 'Parked, paused, or out of circuit.'
         }
       ];
 
@@ -952,7 +992,7 @@
 
     function createTimeline(tasks) {
       if (!Array.isArray(tasks) || tasks.length === 0) {
-        return '<div class="empty-timeline">No recent tasks logged for this agent yet.</div>';
+        return '<div class="empty-timeline">No recent movement logged yet.</div>';
       }
       const recent = [...tasks]
         .sort((a, b) => new Date(b.completed_at || 0) - new Date(a.completed_at || 0))
@@ -1010,10 +1050,22 @@
       }
     }
 
+    // TODO: Update API_URL to your VPS IP/domain once the telemetry service is running
+    const API_URL = 'http://217.15.168.86:8743/api/status';
+    const FALLBACK_URL = './agent-status.json';
+    const POLL_INTERVAL_MS = 30000;
+
     async function loadData() {
-      const response = await fetch('./agent-status.json', { cache: 'no-store' });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
+      try {
+        const response = await fetch(API_URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`API HTTP ${response.status}`);
+        return response.json();
+      } catch (apiErr) {
+        // Fallback to static JSON if live API is unreachable
+        const response = await fetch(FALLBACK_URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      }
     }
 
     function renderBoard(data) {
@@ -1026,14 +1078,14 @@
       document.getElementById('agentCountChip').textContent = `${summary.counts.total} agents tracked`;
       document.getElementById('liveBadgeText').textContent = summary.counts.active > 0 ? 'Live feed active' : 'Live feed ready';
       document.getElementById('lastUpdatedText').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
-        ? lastUpdated.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+        ? relativeOnly(lastUpdated.toISOString())
         : '--';
       document.getElementById('lastUpdatedSub').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
         ? prettyDate(lastUpdated.toISOString(), true)
-        : 'No update timestamp available.';
+        : 'Awaiting first telemetry stamp.';
       document.getElementById('footerNote').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
-        ? `Telemetry refreshed ${prettyDate(lastUpdated.toISOString(), true)}.`
-        : 'Telemetry loaded.';
+        ? `Board sync ${prettyDate(lastUpdated.toISOString(), true)}.`
+        : 'Board standing by.';
 
       renderOverview(summary.counts);
       renderAgents(agents);
@@ -1041,27 +1093,37 @@
 
     function renderError(error) {
       document.getElementById('overallStatusText').textContent = 'Unavailable';
-      document.getElementById('overallStatusSub').textContent = 'Agent telemetry could not be loaded.';
+      document.getElementById('overallStatusSub').textContent = 'Telemetry link failed before the board could lock in.';
       document.getElementById('lastUpdatedSub').textContent = error.message || 'Unknown error';
       overviewGrid.innerHTML = `
         <article class="stat-card">
-          <div class="stat-label">Load failure</div>
+          <div class="stat-label">Signal break</div>
           <div class="stat-value">--</div>
-          <div class="stat-note">Verify agent-status.json is reachable over HTTP(S). GitHub Pages is supported. Direct file:// fetch may be blocked by the browser.</div>
+          <div class="stat-note">Verify agent-status.json is reachable over HTTP(S). GitHub Pages is supported. Direct file:// fetch is often blocked by the browser.</div>
         </article>
       `;
       agentGrid.innerHTML = `
         <article class="agent-card offline">
           <div class="agent-inner">
-            <div class="section-kicker">Data path issue</div>
-            <div class="roster-title" style="font-size: 1.2rem; margin: 0;">Status board could not initialize</div>
-            <div class="hero-copy" style="margin: 0; max-width: none; font-size: 14px;">${escapeHtml(error.message || 'Unknown error')}. If you opened the page directly from disk, use a local HTTP server or GitHub Pages so fetch can read <code>agent-status.json</code>.</div>
+            <div class="section-kicker">Telemetry fault</div>
+            <div class="roster-title" style="font-size: 1.2rem; margin: 0;">Board failed to come online</div>
+            <div class="hero-copy" style="margin: 0; max-width: none; font-size: 14px;">${escapeHtml(error.message || 'Unknown error')}. If this page was opened directly from disk, serve it through a local HTTP server or GitHub Pages so fetch can read <code>agent-status.json</code>.</div>
           </div>
         </article>
       `;
     }
 
-    loadData().then(renderBoard).catch(renderError);
+    async function refresh() {
+      try {
+        const data = await loadData();
+        renderBoard(data);
+      } catch (err) {
+        renderError(err);
+      }
+    }
+
+    refresh();
+    setInterval(refresh, POLL_INTERVAL_MS);
   </script>
 </body>
 </html>
