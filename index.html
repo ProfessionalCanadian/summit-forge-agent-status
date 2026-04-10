@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Summit Forge Labs | Agent Status</title>
+  <title>Summit Forge Labs | Agent Operations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -45,8 +45,21 @@
       margin: 0;
       min-height: 100%;
       background:
-        radial-gradient(circle at top, rgba(201, 168, 76, 0.08), transparent 28%),
-        linear-gradient(180deg, #0a0d13 0%, #080a0f 52%, #07090d 100%);
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.018) 0px,
+          rgba(255,255,255,0.018) 1px,
+          transparent 1px,
+          transparent 8px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(255,255,255,0.018) 0px,
+          rgba(255,255,255,0.018) 1px,
+          transparent 1px,
+          transparent 8px
+        ),
+        linear-gradient(180deg, #07090d 0%, #050709 100%);
       color: var(--text);
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
@@ -82,7 +95,7 @@
       position: relative;
       background:
         linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012)),
-        linear-gradient(145deg, rgba(201, 168, 76, 0.05), transparent 26%),
+        linear-gradient(145deg, rgba(202,210,221,0.02), transparent 26%),
         var(--panel);
       border: 1px solid var(--stroke);
       border-radius: var(--radius-xl);
@@ -181,8 +194,8 @@
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--gold);
-      box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.08);
+      background: var(--silver);
+      box-shadow: 0 0 0 6px rgba(202,210,221,0.1);
     }
 
     .chip.live .dot {
@@ -201,10 +214,10 @@
       position: relative;
       padding: 20px 20px 18px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(201, 168, 76, 0.18);
+      border: 1px solid rgba(202,210,221,0.18);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
-        linear-gradient(145deg, rgba(201,168,76,0.08), transparent 42%),
+        linear-gradient(145deg, rgba(202,210,221,0.04), transparent 42%),
         var(--bg-elevated);
     }
 
@@ -236,7 +249,7 @@
       position: relative;
       height: 1px;
       margin: 6px 6px 20px;
-      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.48), rgba(202,210,221,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(202,210,221,0.5), transparent);
     }
 
     .section-divider::after {
@@ -248,8 +261,8 @@
       height: 10px;
       border-radius: 999px;
       transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(201,168,76,0.85) 0%, rgba(201,168,76,0.18) 45%, transparent 70%);
-      box-shadow: 0 0 24px rgba(201,168,76,0.3);
+      background: radial-gradient(circle, rgba(202,210,221,0.9) 0%, rgba(202,210,221,0.2) 45%, transparent 70%);
+      box-shadow: 0 0 24px rgba(202,210,221,0.3);
     }
 
     .overview {
@@ -391,10 +404,10 @@
       border: 1px solid var(--stroke);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.012)),
-        linear-gradient(145deg, rgba(201,168,76,0.06), transparent 24%),
+        linear-gradient(145deg, rgba(202,210,221,0.02), transparent 24%),
         linear-gradient(180deg, var(--panel-2), var(--panel));
       overflow: hidden;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(202,210,221,0.12);
     }
 
     .agent-card::after {
@@ -727,14 +740,14 @@
     <section class="hero">
       <div>
         <div class="brand-row">
-          <img class="brand-mark" src="./logo-transparent.jpg" alt="Summit Forge Labs logo" />
+          <img class="brand-mark" src="./logo-chrome-light.jpg" alt="Summit Forge Labs logo" />
           <div>
             <div class="eyebrow">Summit Forge Labs</div>
-            <div style="font-size:13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; margin-top: 6px;">Forged oversight for every active mind</div>
+            <div style="font-size:13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; margin-top: 6px;">Full visibility. No noise.</div>
           </div>
         </div>
         <h1>Agent <span>Status</span></h1>
-        <p class="hero-copy">A live command surface for the Summit Forge Labs operator stack. Readiness, load, and recent motion, cut clean and visible at a glance.</p>
+        <p class="hero-copy">Live command surface for the operator stack. Readiness, load, and recent motion — stripped down and readable.</p>
         <div class="hero-meta">
           <div class="chip live"><span class="dot"></span><span id="liveBadgeText">Live feed</span></div>
           <div class="chip"><span class="dot"></span><span id="agentCountChip">0 agents tracked</span></div>
@@ -834,7 +847,7 @@
 
         <div class="meta-grid">
           <div class="meta-block">
-            <div class="meta-label">Current brief</div>
+            <div class="meta-label">Active brief</div>
             <div class="meta-value meta-task"></div>
           </div>
           <div class="meta-block">
@@ -1039,7 +1052,7 @@
         fragment.querySelector('.specialty').textContent = agent.specialty || 'No specialty recorded';
         fragment.querySelector('.meta-task').textContent = agent.current_task || 'Idle';
         fragment.querySelector('.meta-last-seen').textContent = prettyDate(agent.last_seen, true);
-        fragment.querySelector('.meta-notes').textContent = agent.notes || 'No operator notes.';
+        fragment.querySelector('.meta-notes').textContent = agent.notes || 'No notes on file.';
         fragment.querySelector('.timeline-content').innerHTML = createTimeline(agent.recent_tasks);
 
         if (['awake', 'working'].includes(String(agent.status || '').toLowerCase())) {
