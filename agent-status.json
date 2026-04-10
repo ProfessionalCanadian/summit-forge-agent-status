@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-09T20:00:00Z",
+  "last_updated": "2026-04-10T01:29:00Z",
   "agents": [
     {
       "id": "oscar",
@@ -9,9 +9,14 @@
       "model": "claude-sonnet-4-6",
       "status": "awake",
       "health": "good",
-      "current_task": "Kicking off Agent Status Page project",
-      "last_seen": "2026-04-09T20:00:00Z",
-      "notes": ""
+      "current_task": "Coordinating status page UI rebuild",
+      "last_seen": "2026-04-10T01:29:00Z",
+      "notes": "",
+      "recent_tasks": [
+        { "task": "Deployed status page to GitHub Pages", "completed_at": "2026-04-10T01:17:00Z" },
+        { "task": "Coordinated GitHub skill build with Forge", "completed_at": "2026-04-10T00:55:00Z" },
+        { "task": "Briefed Vera on UI trend research", "completed_at": "2026-04-10T01:25:00Z" }
+      ]
     },
     {
       "id": "vera",
@@ -22,8 +27,11 @@
       "status": "standby",
       "health": "good",
       "current_task": null,
-      "last_seen": null,
-      "notes": ""
+      "last_seen": "2026-04-10T01:24:00Z",
+      "notes": "UI trend research delivered",
+      "recent_tasks": [
+        { "task": "Researched dark-theme dashboard UI trends for status page redesign", "completed_at": "2026-04-10T01:24:00Z" }
+      ]
     },
     {
       "id": "forge",
@@ -34,8 +42,11 @@
       "status": "standby",
       "health": "good",
       "current_task": null,
-      "last_seen": null,
-      "notes": ""
+      "last_seen": "2026-04-10T00:55:00Z",
+      "notes": "GitHub skill built and packaged",
+      "recent_tasks": [
+        { "task": "Built and packaged GitHub AgentSkill (push, Pages, create repo)", "completed_at": "2026-04-10T00:55:00Z" }
+      ]
     },
     {
       "id": "sentinel",
@@ -47,7 +58,11 @@
       "health": "good",
       "current_task": null,
       "last_seen": "2026-04-09T07:00:00Z",
-      "notes": "Daily audit completed"
+      "notes": "Daily audit completed",
+      "recent_tasks": [
+        { "task": "Daily security audit — flagged plaintext secrets in state files", "completed_at": "2026-04-09T07:00:00Z" },
+        { "task": "Second audit pass with expanded checklist", "completed_at": "2026-04-09T08:00:00Z" }
+      ]
     },
     {
       "id": "scribe",
@@ -59,7 +74,11 @@
       "health": "good",
       "current_task": null,
       "last_seen": "2026-04-09T17:00:00Z",
-      "notes": "Midday sync completed"
+      "notes": "End-of-day sync completed",
+      "recent_tasks": [
+        { "task": "Updated SENTINEL_CHECKLIST, CHANGELOG, ACTIVE_AGENTS, PROJECTS", "completed_at": "2026-04-09T17:00:00Z" },
+        { "task": "Midday sync — documentation pass", "completed_at": "2026-04-09T12:00:00Z" }
+      ]
     },
     {
       "id": "probe",
@@ -71,7 +90,8 @@
       "health": "good",
       "current_task": null,
       "last_seen": null,
-      "notes": ""
+      "notes": "Not yet deployed",
+      "recent_tasks": []
     },
     {
       "id": "ledger",
@@ -83,7 +103,8 @@
       "health": "paused",
       "current_task": null,
       "last_seen": null,
-      "notes": "Daily brief paused — pending re-enable"
+      "notes": "Daily brief paused — pending re-enable",
+      "recent_tasks": []
     }
   ]
 }
