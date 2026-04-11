@@ -985,6 +985,15 @@
 
     const statusPriority = { degraded: 5, offline: 4, working: 3, awake: 3, standby: 2, dreaming: 1 };
     const healthPriority = { bad: 3, degraded: 2, paused: 1, good: 0 };
+    const availableAvatarStates = {
+      oscar: ['awake'],
+      vera: ['awake'],
+      forge: ['awake'],
+      sentinel: ['awake'],
+      scribe: ['awake'],
+      probe: ['awake'],
+      ledger: ['awake']
+    };
     const avatarStateIcons = {
       working: '⚒️',
       standby: '◌',
@@ -1120,10 +1129,14 @@
       const base = `./images/${agent.id}`;
       const status = String(agent.status || '').toLowerCase();
       const health = String(agent.health || '').toLowerCase();
-      const names = [avatarState];
-      if (status && !names.includes(status)) names.push(status);
-      if (health && !names.includes(health)) names.push(health);
-      if (!names.includes('awake')) names.push('awake');
+      const available = new Set(availableAvatarStates[agent.id] || ['awake']);
+      const names = [];
+
+      for (const name of [avatarState, status, health, 'awake']) {
+        if (name && available.has(name) && !names.includes(name)) names.push(name);
+      }
+
+      if (!names.length) names.push('awake');
 
       const candidates = [];
       for (const name of names) {
@@ -1274,7 +1287,7 @@
       `).join('');
 
       const rowSignals = [
-        `${metrics.counts.activeBriefs} live briefs`,
+        `${metrics.counts.activeBriefs} active briefs`,
         `${metrics.counts.recentTasks24h} tasks in 24h`,
         metrics.staleAgents.length ? `${metrics.staleAgents.length} stale contacts` : 'No stale contacts'
       ];
@@ -1287,7 +1300,7 @@
         {
           label: 'Online',
           value: metrics.counts.online,
-          note: `${metrics.counts.active} carrying live load.`
+          note: `${metrics.counts.active} carrying load.`
         },
         {
           label: 'Nominal',
@@ -1450,8 +1463,8 @@
 
       setChipState(liveChip, dataSource === 'api' ? 'live' : 'warn');
       document.getElementById('liveBadgeText').textContent = dataSource === 'api'
-        ? 'Status API online'
-        : 'Snapshot fallback';
+        ? (metrics.telemetryFreshness.level === 'fresh' ? 'Status API online' : 'Status API delayed')
+        : 'Snapshot mode';
 
       const staleState = metrics.telemetryFreshness.level === 'fresh'
         ? 'live'
