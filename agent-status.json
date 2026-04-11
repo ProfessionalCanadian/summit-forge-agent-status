@@ -33,9 +33,9 @@
       "role": "Fact Checker & Research",
       "specialty": "Verification, sourcing, and evidence-backed research",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "good",
-      "current_task": "Validation",
+      "current_task": null,
       "last_seen": "2026-04-11T19:59:38.075Z",
       "notes": "",
       "recent_tasks": [
