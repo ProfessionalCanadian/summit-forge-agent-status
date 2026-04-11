@@ -787,11 +787,11 @@
           <img class="brand-mark" src="./logo-chrome-light.jpg" alt="Summit Forge Labs logo" />
           <div>
             <div class="eyebrow">Summit Forge Labs</div>
-            <div style="margin-top: 6px; color: var(--text-dim); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 800;">Forged telemetry, no theater</div>
+            <div style="margin-top: 6px; color: var(--text-dim); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 800;">Full visibility. No noise.</div>
           </div>
         </div>
         <h1>Agent <span>Operations</span></h1>
-        <p class="hero-copy">Live board for the current operator field. It reads what the feed can honestly prove, marks when data is getting stale, and keeps visual state tied to actual status instead of decoration.</p>
+        <p class="hero-copy">Live telemetry when it holds. Clean snapshot when it doesn't.</p>
         <div class="hero-meta">
           <div class="chip live" id="liveChip"><span class="chip-dot"></span><span id="liveBadgeText">Linking telemetry</span></div>
           <div class="chip"><span class="chip-dot"></span><span id="agentCountChip">0 agents tracked</span></div>
@@ -803,7 +803,7 @@
           <div class="status-well operational" id="overallStatusWell">
             <div class="status-main">
               <div>
-                <div class="status-label">Overall team status</div>
+                <div class="status-label">Fleet status</div>
                 <div class="status-value" id="overallStatusText">Loading</div>
               </div>
               <div class="status-flare"></div>
@@ -813,7 +813,7 @@
           <div class="status-well" id="freshnessWell">
             <div class="status-main">
               <div>
-                <div class="status-label">Telemetry freshness</div>
+                <div class="status-label">Last sync</div>
                 <div class="status-value" id="freshnessText" style="font-size: clamp(1.2rem, 2.4vw, 1.85rem);">--</div>
               </div>
               <div class="status-flare"></div>
@@ -834,12 +834,12 @@
     <div class="section-divider" aria-hidden="true"></div>
 
     <section class="overview panel">
-      <div class="section-kicker">At a glance</div>
+      <div class="section-kicker">Board read</div>
       <div class="overview-grid" id="overviewGrid">
         <article class="stat-card">
-          <div class="metric-label">Agents online</div>
+          <div class="metric-label">Online</div>
           <div class="stat-value">--</div>
-          <div class="stat-note">Waiting for live data.</div>
+          <div class="stat-note">Telemetry pending.</div>
         </article>
       </div>
     </section>
@@ -851,7 +851,7 @@
           <div class="legend-dot legend-operational"></div>
           <div>
             <div class="legend-card-title legend-operational">Operational</div>
-            <div class="legend-copy">Reachable, healthy, and ready to carry load at full pace.</div>
+            <div class="legend-copy">Reachable, stable, and clear for full load.</div>
           </div>
         </article>
         <article class="legend-card">
@@ -865,7 +865,7 @@
           <div class="legend-dot legend-standby"></div>
           <div>
             <div class="legend-card-title legend-standby">Standby</div>
-            <div class="legend-copy">Available and coherent, but not currently carrying active work.</div>
+            <div class="legend-copy">Available, stable, and not carrying active work.</div>
           </div>
         </article>
         <article class="legend-card">
@@ -879,7 +879,7 @@
           <div class="legend-dot legend-degraded"></div>
           <div>
             <div class="legend-card-title legend-degraded">Degraded / Offline</div>
-            <div class="legend-copy">Constraint, pause, or loss of contact. Health problems outrank activity visually.</div>
+            <div class="legend-copy">Cold, constrained, or unreachable. Health problems outrank activity visually.</div>
           </div>
         </article>
       </div>
@@ -888,10 +888,10 @@
     <section class="roster panel">
       <div class="roster-head">
         <div>
-          <div class="section-kicker">Operator field</div>
+          <div class="section-kicker">Active roster</div>
           <h2 class="roster-title">Agent deck</h2>
         </div>
-        <div class="roster-sub">Cards sort by urgency first. Degraded and cold units stay at the front so the board reads like operations, not wallpaper.</div>
+        <div class="roster-sub">Fast read first. Detail on demand.</div>
       </div>
 
       <div class="board-callout" id="boardCallout">
@@ -930,7 +930,7 @@
 
         <div class="health-band">
           <div>
-            <div class="meta-label">Health state</div>
+            <div class="meta-label">Condition</div>
             <div class="health-value"></div>
             <div class="health-copy"></div>
           </div>
@@ -939,11 +939,11 @@
 
         <div class="meta-grid">
           <div class="meta-block">
-            <div class="meta-label">Active brief</div>
+            <div class="meta-label">Current brief</div>
             <div class="meta-value meta-task"></div>
           </div>
           <div class="meta-block">
-            <div class="meta-label">Last contact</div>
+            <div class="meta-label">Last signal</div>
             <div class="meta-value meta-last-seen"></div>
           </div>
           <div class="meta-block">
@@ -957,12 +957,12 @@
         </div>
 
         <div class="meta-block">
-          <div class="meta-label">Operator notes</div>
+          <div class="meta-label">Notes</div>
           <div class="meta-value meta-notes"></div>
         </div>
 
         <div class="timeline">
-          <div class="timeline-title">Recent activity</div>
+          <div class="timeline-title">Recent work</div>
           <div class="timeline-content"></div>
         </div>
       </div>
@@ -1037,18 +1037,18 @@
     }
 
     function relativeOnly(iso) {
-      if (!iso) return 'No telemetry yet';
+      if (!iso) return 'No signal yet';
       const date = new Date(iso);
       if (Number.isNaN(date.getTime())) return 'Unknown timing';
       const diffMs = Date.now() - date.getTime();
-      if (diffMs < 0) return 'Updated moments ago';
+      if (diffMs < 0) return 'Synced moments ago';
       const diffMin = Math.round(diffMs / 60000);
-      if (diffMin < 1) return 'Updated just now';
-      if (diffMin < 60) return `Updated ${pluralize(diffMin, 'minute')} ago`;
+      if (diffMin < 1) return 'Synced just now';
+      if (diffMin < 60) return `Synced ${pluralize(diffMin, 'minute')} ago`;
       const diffHr = Math.round(diffMin / 60);
-      if (diffHr < 24) return `Updated ${pluralize(diffHr, 'hour')} ago`;
+      if (diffHr < 24) return `Synced ${pluralize(diffHr, 'hour')} ago`;
       const diffDay = Math.round(diffHr / 24);
-      return `Updated ${pluralize(diffDay, 'day')} ago`;
+      return `Synced ${pluralize(diffDay, 'day')} ago`;
     }
 
     function evaluateOperationalState(agent) {
@@ -1174,7 +1174,7 @@
 
     function createTimeline(tasks) {
       if (!Array.isArray(tasks) || tasks.length === 0) {
-        return '<div class="empty-timeline">No recent movement logged yet.</div>';
+        return '<div class="empty-timeline">No recent work logged.</div>'
       }
       const recent = [...tasks]
         .filter(task => task && task.completed_at)
@@ -1285,24 +1285,24 @@
     function renderOverview(metrics) {
       const cards = [
         {
-          label: 'Agents online',
+          label: 'Online',
           value: metrics.counts.online,
-          note: `${metrics.counts.active} awake or actively carrying work.`
+          note: `${metrics.counts.active} carrying live load.`
         },
         {
-          label: 'Operational',
+          label: 'Nominal',
           value: metrics.counts.operational,
-          note: 'Healthy and clear to run at full pace.'
+          note: 'Clear for full load.'
         },
         {
-          label: 'Degraded',
+          label: 'Limited',
           value: metrics.counts.degraded,
-          note: 'Reachable, but under drag, delay, or reduced tolerance.'
+          note: 'Available, under constraint.'
         },
         {
           label: 'Offline',
           value: metrics.counts.offline,
-          note: 'Paused, cold, or not currently reachable.'
+          note: 'Cold, paused, or dark.'
         },
         {
           label: 'Recent output',
@@ -1471,7 +1471,7 @@
         : `No stale contacts right now. Last board update ${data.last_updated ? relativeOnly(data.last_updated).replace(/^Updated\s+/i, '') : 'is unavailable'}.`;
 
       document.getElementById('footerNote').textContent = data.last_updated
-        ? `${dataSource === 'api' ? 'Status API' : 'Snapshot'} sync ${prettyDate(data.last_updated, true)}.`
+        ? `${dataSource === 'api' ? 'API' : 'Snapshot'} sync ${prettyDate(data.last_updated, true)}.`
         : 'Board standing by.';
 
       renderSignals(metrics, dataSource);
@@ -1480,17 +1480,17 @@
     }
 
     function renderError(error) {
-      document.getElementById('overallStatusText').textContent = 'Unavailable';
-      document.getElementById('overallStatusSub').textContent = 'Telemetry could not be fetched from the API or the local snapshot.';
+      document.getElementById('overallStatusText').textContent = 'Link down';
+      document.getElementById('overallStatusSub').textContent = 'Telemetry link failed before lock-on.';
       document.getElementById('freshnessText').textContent = 'Link failed';
       document.getElementById('freshnessSub').textContent = error.message || 'Unknown error';
-      document.getElementById('calloutTitle').textContent = 'Board failed to come online';
+      document.getElementById('calloutTitle').textContent = 'Board offline';
       document.getElementById('calloutCopy').textContent = 'Serve this page over HTTP(S). Direct file access often blocks fetch in the browser.';
       document.getElementById('footerNote').textContent = 'Telemetry link down.';
 
       signalGrid.innerHTML = `
         <article class="signal-card">
-          <div class="metric-label">Signal break</div>
+          <div class="metric-label">Signal loss</div>
           <div class="signal-value">--</div>
           <div class="signal-note">${escapeHtml(error.message || 'Unknown error')}</div>
         </article>
