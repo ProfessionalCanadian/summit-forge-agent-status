@@ -1072,12 +1072,14 @@
       try {
         const response = await fetch(API_URL, { cache: 'no-store' });
         if (!response.ok) throw new Error(`API HTTP ${response.status}`);
-        return response.json();
+        const data = await response.json();
+        return { ...data, __source: 'api' };
       } catch (apiErr) {
         // Fallback to static JSON if live API is unreachable
         const response = await fetch(FALLBACK_URL, { cache: 'no-store' });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.json();
+        const data = await response.json();
+        return { ...data, __source: 'fallback' };
       }
     }
 
@@ -1085,11 +1087,14 @@
       const agents = Array.isArray(data.agents) ? data.agents : [];
       const summary = overallSummary(agents);
       const lastUpdated = data.last_updated ? new Date(data.last_updated) : null;
+      const dataSource = data.__source === 'api' ? 'api' : 'fallback';
 
       document.getElementById('overallStatusText').textContent = summary.overall;
       document.getElementById('overallStatusSub').textContent = summary.sub;
       document.getElementById('agentCountChip').textContent = `${summary.counts.total} agents tracked`;
-      document.getElementById('liveBadgeText').textContent = summary.counts.active > 0 ? 'Live feed active' : 'Live feed ready';
+      document.getElementById('liveBadgeText').textContent = dataSource === 'api'
+        ? (summary.counts.active > 0 ? 'Live feed active' : 'Live feed ready')
+        : 'Static fallback';
       document.getElementById('lastUpdatedText').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
         ? relativeOnly(lastUpdated.toISOString())
         : '--';
@@ -1097,7 +1102,9 @@
         ? prettyDate(lastUpdated.toISOString(), true)
         : 'Awaiting first telemetry stamp.';
       document.getElementById('footerNote').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
-        ? `Board sync ${prettyDate(lastUpdated.toISOString(), true)}.`
+        ? (dataSource === 'api'
+          ? `Board sync ${prettyDate(lastUpdated.toISOString(), true)}.`
+          : `Fallback sync ${prettyDate(lastUpdated.toISOString(), true)}.`)
         : 'Board standing by.';
 
       renderOverview(summary.counts);
