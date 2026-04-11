@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T06:35:00.094Z",
+  "last_updated": "2026-04-11T07:00:42.323Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-11T06:35:00.094Z",
+      "last_seen": "2026-04-11T07:00:42.323Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-11T06:35:00.094Z"
+          "completed_at": "2026-04-11T07:00:42.323Z"
         },
         {
           "task": "Status Page Sprint Review",
@@ -85,12 +85,16 @@
       "role": "Security & Compliance",
       "specialty": "Audit, risk assessment, and policy enforcement",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-10T07:04:18.384Z",
+      "current_task": "Daily security audit completed",
+      "last_seen": "2026-04-11T07:00:42.041Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Daily security audit completed",
+          "completed_at": "2026-04-11T07:00:42.041Z"
+        },
         {
           "task": "Daily Security Audit 2026 04 10",
           "completed_at": "2026-04-10T07:04:18.384Z"
@@ -98,10 +102,6 @@
         {
           "task": "Daily security audit completed",
           "completed_at": "2026-04-10T07:00:49.940Z"
-        },
-        {
-          "task": "N8n Workflow Mastery Review",
-          "completed_at": "2026-04-10T03:14:14.793Z"
         }
       ]
     },
