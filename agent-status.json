@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T18:18:40.883Z",
+  "last_updated": "2026-04-11T18:46:48.405Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,20 +10,20 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-11T18:18:40.883Z",
+      "last_seen": "2026-04-11T18:46:48.405Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-11T18:18:40.883Z"
+          "completed_at": "2026-04-11T18:46:48.405Z"
+        },
+        {
+          "task": "Review Sfl Prompt V2",
+          "completed_at": "2026-04-11T18:46:45.173Z"
         },
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:50:36.805Z"
-        },
-        {
-          "task": "Status Page Sprint Review",
-          "completed_at": "2026-04-11T05:21:06.916Z"
         }
       ]
     },
@@ -33,12 +33,16 @@
       "role": "Fact Checker & Research",
       "specialty": "Verification, sourcing, and evidence-backed research",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T08:48:59.047Z",
+      "current_task": "Review Sfl Prompt V2",
+      "last_seen": "2026-04-11T18:46:45.513Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Review Sfl Prompt V2",
+          "completed_at": "2026-04-11T18:46:45.513Z"
+        },
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:48:59.047Z"
@@ -46,10 +50,6 @@
         {
           "task": "Upwork Portfolio Research",
           "completed_at": "2026-04-10T13:00:40.254Z"
-        },
-        {
-          "task": "Self Improving Agent Best Practices Research",
-          "completed_at": "2026-04-10T05:27:29.981Z"
         }
       ]
     },
@@ -59,12 +59,16 @@
       "role": "Coding Agent",
       "specialty": "Implementation, refactors, and technical precision",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T16:40:25.796Z",
+      "current_task": "Review Sfl Prompt V2",
+      "last_seen": "2026-04-11T18:46:29.487Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Review Sfl Prompt V2",
+          "completed_at": "2026-04-11T18:46:29.487Z"
+        },
         {
           "task": "Sfl 3 Directions",
           "completed_at": "2026-04-11T16:40:25.796Z"
@@ -72,10 +76,6 @@
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:15.910Z"
-        },
-        {
-          "task": "Status Page Autonomous Sprint",
-          "completed_at": "2026-04-11T05:32:29.358Z"
         }
       ]
     },
@@ -85,12 +85,16 @@
       "role": "Security & Compliance",
       "specialty": "Audit, risk assessment, and policy enforcement",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T08:49:15.791Z",
+      "current_task": "Review Sfl Prompt V2",
+      "last_seen": "2026-04-11T18:46:39.675Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Review Sfl Prompt V2",
+          "completed_at": "2026-04-11T18:46:39.675Z"
+        },
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:15.791Z"
@@ -98,10 +102,6 @@
         {
           "task": "Daily security audit completed",
           "completed_at": "2026-04-11T07:00:42.041Z"
-        },
-        {
-          "task": "Daily Security Audit 2026 04 10",
-          "completed_at": "2026-04-10T07:04:18.384Z"
         }
       ]
     },
@@ -111,12 +111,16 @@
       "role": "Operations & Documentation",
       "specialty": "Record-keeping, changelogs, and operational truth",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T16:00:32.317Z",
+      "current_task": "Review Sfl Prompt V2",
+      "last_seen": "2026-04-11T18:46:18.102Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Review Sfl Prompt V2",
+          "completed_at": "2026-04-11T18:46:18.102Z"
+        },
         {
           "task": "Midday sync completed",
           "completed_at": "2026-04-11T16:00:32.317Z"
@@ -124,10 +128,6 @@
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:27.745Z"
-        },
-        {
-          "task": "End Of Day Pass And Contradiction Check",
-          "completed_at": "2026-04-10T22:01:26.683Z"
         }
       ]
     },
@@ -137,12 +137,16 @@
       "role": "Brand Voice & Copywriting",
       "specialty": "Voice, copy polish, and public-facing language",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T16:38:48.666Z",
+      "current_task": "Review Sfl Prompt V2",
+      "last_seen": "2026-04-11T18:46:30.398Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Review Sfl Prompt V2",
+          "completed_at": "2026-04-11T18:46:30.398Z"
+        },
         {
           "task": "Sfl 3 Directions",
           "completed_at": "2026-04-11T16:38:48.666Z"
@@ -150,10 +154,6 @@
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:52.193Z"
-        },
-        {
-          "task": "Status Page Copy Pass",
-          "completed_at": "2026-04-11T05:21:53.503Z"
         }
       ]
     },
@@ -163,12 +163,16 @@
       "role": "QA & Verification",
       "specialty": "Independent output review and adversarial testing",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T08:49:44.051Z",
+      "current_task": "Review Sfl Prompt V2",
+      "last_seen": "2026-04-11T18:46:27.895Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Review Sfl Prompt V2",
+          "completed_at": "2026-04-11T18:46:27.895Z"
+        },
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:44.051Z"
@@ -176,10 +180,6 @@
         {
           "task": "Status Page Live QA",
           "completed_at": "2026-04-11T06:34:37.170Z"
-        },
-        {
-          "task": "Full Project QA Fix Pass",
-          "completed_at": "2026-04-11T04:43:49.595Z"
         }
       ]
     },
