@@ -89,6 +89,7 @@ Build a polished, premium web-based agent status dashboard that Josh can open at
 - [x] Deployed to GitHub Pages: https://professionalcanadian.github.io/summit-forge-agent-status/
 - [x] CNAME file added for agents.summitforgelabs.com
 - [x] Snapshot-mode fallback clarified while live telemetry is not yet wired
+- [x] Public HTTPS status API proxy wired through tools.summitforgelabs.com
 
 ### Phase 3 — Profile Images
 - [ ] Images generated per agent (all states)
@@ -123,3 +124,4 @@ Build a polished, premium web-based agent status dashboard that Josh can open at
 | 2026-04-10 | CNAME file added: agents.summitforgelabs.com — DNS pending Josh (Namecheap) | Oscar |
 | 2026-04-11 | Switched board to honest snapshot mode until a real telemetry endpoint is available | Oscar |
 | 2026-04-11 | Removed custom-domain redirect from the deployed repo until HTTPS is ready | Oscar |
+| 2026-04-11 | Added public HTTPS status API proxy on tools.summitforgelabs.com and repointed the board to it | Oscar |

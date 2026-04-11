@@ -1063,9 +1063,8 @@
       }
     }
 
-    // Set this to a real telemetry endpoint when live agent status publishing is available.
-    // Leave null to run in honest snapshot mode off agent-status.json.
-    const API_URL = null;
+    // Public HTTPS status API proxying the latest committed status feed.
+    const API_URL = 'https://tools.summitforgelabs.com/api/status';
     const FALLBACK_URL = './agent-status.json';
     const POLL_INTERVAL_MS = 30000;
 
@@ -1095,7 +1094,7 @@
       document.getElementById('overallStatusSub').textContent = summary.sub;
       document.getElementById('agentCountChip').textContent = `${summary.counts.total} agents tracked`;
       document.getElementById('liveBadgeText').textContent = dataSource === 'api'
-        ? (summary.counts.active > 0 ? 'Live feed active' : 'Live feed ready')
+        ? (summary.counts.active > 0 ? 'Status API online' : 'Status API ready')
         : 'Snapshot mode';
       document.getElementById('lastUpdatedText').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
         ? relativeOnly(lastUpdated.toISOString())
@@ -1105,7 +1104,7 @@
         : 'Awaiting first telemetry stamp.';
       document.getElementById('footerNote').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
         ? (dataSource === 'api'
-          ? `Board sync ${prettyDate(lastUpdated.toISOString(), true)}.`
+          ? `Status API sync ${prettyDate(lastUpdated.toISOString(), true)}.`
           : `Snapshot sync ${prettyDate(lastUpdated.toISOString(), true)}.`)
         : 'Board standing by.';
 
