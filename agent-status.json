@@ -59,9 +59,9 @@
       "role": "Coding Agent",
       "specialty": "Implementation, refactors, and technical precision",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "good",
-      "current_task": "Status Page Autonomous Sprint",
+      "current_task": null,
       "last_seen": "2026-04-11T05:32:29.358Z",
       "notes": "",
       "recent_tasks": [
