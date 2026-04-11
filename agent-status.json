@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T08:41:56.316Z",
+  "last_updated": "2026-04-11T08:50:36.701Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,20 +10,20 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-11T08:41:56.316Z",
+      "last_seen": "2026-04-11T08:50:36.701Z",
       "notes": "",
       "recent_tasks": [
         {
+          "task": "Brand Interview Input",
+          "completed_at": "2026-04-11T08:50:36.805Z"
+        },
+        {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-11T08:41:56.316Z"
+          "completed_at": "2026-04-11T08:50:36.701Z"
         },
         {
           "task": "Status Page Sprint Review",
           "completed_at": "2026-04-11T05:21:06.916Z"
-        },
-        {
-          "task": "Project QA Review",
-          "completed_at": "2026-04-11T04:00:47.327Z"
         }
       ]
     },
@@ -33,12 +33,16 @@
       "role": "Fact Checker & Research",
       "specialty": "Verification, sourcing, and evidence-backed research",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-10T13:00:40.254Z",
+      "current_task": "Brand Interview Input",
+      "last_seen": "2026-04-11T08:48:59.047Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Brand Interview Input",
+          "completed_at": "2026-04-11T08:48:59.047Z"
+        },
         {
           "task": "Upwork Portfolio Research",
           "completed_at": "2026-04-10T13:00:40.254Z"
@@ -46,10 +50,6 @@
         {
           "task": "Self Improving Agent Best Practices Research",
           "completed_at": "2026-04-10T05:27:29.981Z"
-        },
-        {
-          "task": "N8n Workflow Mastery Review",
-          "completed_at": "2026-04-10T03:15:43.808Z"
         }
       ]
     },
@@ -59,12 +59,16 @@
       "role": "Coding Agent",
       "specialty": "Implementation, refactors, and technical precision",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T05:32:29.358Z",
+      "current_task": "Brand Interview Input",
+      "last_seen": "2026-04-11T08:49:15.910Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Brand Interview Input",
+          "completed_at": "2026-04-11T08:49:15.910Z"
+        },
         {
           "task": "Status Page Autonomous Sprint",
           "completed_at": "2026-04-11T05:32:29.358Z"
@@ -72,10 +76,6 @@
         {
           "task": "Implement Runtime Warning Tracker",
           "completed_at": "2026-04-11T01:11:20.438Z"
-        },
-        {
-          "task": "Build Lead Scoring Pipeline",
-          "completed_at": "2026-04-10T17:17:56.308Z"
         }
       ]
     },
@@ -85,12 +85,16 @@
       "role": "Security & Compliance",
       "specialty": "Audit, risk assessment, and policy enforcement",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T07:00:42.041Z",
+      "current_task": "Brand Interview Input",
+      "last_seen": "2026-04-11T08:49:15.791Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Brand Interview Input",
+          "completed_at": "2026-04-11T08:49:15.791Z"
+        },
         {
           "task": "Daily security audit completed",
           "completed_at": "2026-04-11T07:00:42.041Z"
@@ -98,10 +102,6 @@
         {
           "task": "Daily Security Audit 2026 04 10",
           "completed_at": "2026-04-10T07:04:18.384Z"
-        },
-        {
-          "task": "Daily security audit completed",
-          "completed_at": "2026-04-10T07:00:49.940Z"
         }
       ]
     },
@@ -111,12 +111,16 @@
       "role": "Operations & Documentation",
       "specialty": "Record-keeping, changelogs, and operational truth",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-10T22:01:26.683Z",
+      "current_task": "Brand Interview Input",
+      "last_seen": "2026-04-11T08:49:27.745Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Brand Interview Input",
+          "completed_at": "2026-04-11T08:49:27.745Z"
+        },
         {
           "task": "End Of Day Pass And Contradiction Check",
           "completed_at": "2026-04-10T22:01:26.683Z"
@@ -124,10 +128,6 @@
         {
           "task": "End-of-day pass completed",
           "completed_at": "2026-04-10T22:00:44.401Z"
-        },
-        {
-          "task": "Midday Sync 2026 04 10",
-          "completed_at": "2026-04-10T16:02:27.567Z"
         }
       ]
     },
@@ -137,12 +137,16 @@
       "role": "Brand Voice & Copywriting",
       "specialty": "Voice, copy polish, and public-facing language",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T05:21:53.503Z",
+      "current_task": "Brand Interview Input",
+      "last_seen": "2026-04-11T08:49:52.193Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Brand Interview Input",
+          "completed_at": "2026-04-11T08:49:52.193Z"
+        },
         {
           "task": "Status Page Copy Pass",
           "completed_at": "2026-04-11T05:21:53.503Z"
@@ -150,10 +154,6 @@
         {
           "task": "Name The Lead Scoring Tool",
           "completed_at": "2026-04-10T17:25:32.581Z"
-        },
-        {
-          "task": "Status Page Copy Pass",
-          "completed_at": "2026-04-10T12:40:13.069Z"
         }
       ]
     },
@@ -163,12 +163,16 @@
       "role": "QA & Verification",
       "specialty": "Independent output review and adversarial testing",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T06:34:37.170Z",
+      "current_task": "Brand Interview Input",
+      "last_seen": "2026-04-11T08:49:44.051Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Brand Interview Input",
+          "completed_at": "2026-04-11T08:49:44.051Z"
+        },
         {
           "task": "Status Page Live QA",
           "completed_at": "2026-04-11T06:34:37.170Z"
@@ -176,10 +180,6 @@
         {
           "task": "Full Project QA Fix Pass",
           "completed_at": "2026-04-11T04:43:49.595Z"
-        },
-        {
-          "task": "Implement Runtime Warning Popups/Guardrails",
-          "completed_at": "2026-04-11T00:39:51.414Z"
         }
       ]
     },
@@ -189,12 +189,16 @@
       "role": "AI Monetization",
       "specialty": "Revenue opportunity identification and feasibility scoring",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "degraded",
-      "current_task": null,
-      "last_seen": "2026-04-11T06:04:14.550Z",
+      "current_task": "Daily monetization brief completed",
+      "last_seen": "2026-04-11T08:49:38.754Z",
       "notes": "TEAM.md says paused, but the scheduled Ledger brief is still running live. Docs/config need reconciliation.",
       "recent_tasks": [
+        {
+          "task": "Brand Interview Input",
+          "completed_at": "2026-04-11T08:49:38.754Z"
+        },
         {
           "task": "Scheduled Brief 2026 04 11 0201",
           "completed_at": "2026-04-11T06:04:14.550Z"
