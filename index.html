@@ -1209,7 +1209,8 @@
 
     function deriveBoardMetrics(agents, data, fetchMeta) {
       const lastUpdated = data.last_updated || null;
-      const telemetryFreshness = getFreshnessCopy(lastUpdated);
+      const sourceUpdated = data.snapshot_source_updated_at || null;
+      const boardFreshness = getFreshnessCopy(lastUpdated);
       const onlineStatuses = ['awake', 'working', 'standby', 'dreaming'];
       const online = agents.filter(agent => onlineStatuses.includes(String(agent.status || '').toLowerCase())).length;
       const active = agents.filter(agent => ['awake', 'working'].includes(String(agent.status || '').toLowerCase())).length;
@@ -1222,30 +1223,37 @@
       const oldestStaleAgent = staleAgents
         .filter(agent => agent.last_seen)
         .sort((a, b) => new Date(a.last_seen).getTime() - new Date(b.last_seen).getTime())[0] || null;
+      const contactFreshness = staleAgents.length === 0
+        ? { level: 'fresh', title: 'Contacts fresh', note: 'Every tracked unit is within the live contact window.' }
+        : staleAgents.length === agents.length
+          ? { level: 'critical', title: 'Contacts stale', note: 'The board is refreshed, but every tracked unit is outside the live contact window.' }
+          : { level: 'warning', title: 'Contacts mixed', note: `${pluralize(staleAgents.length, 'contact')} are aging out of the live window.` };
 
       let overall = 'Operational';
       let overallState = 'operational';
       let sub = `${active} in motion, ${online} reachable, ${recentTasks24h} logged in the last 24 hours.`;
 
-      if (telemetryFreshness.level === 'critical') {
-        overall = 'Stale telemetry';
-        overallState = 'offline';
-        sub = 'The board is still rendering, but the feed is old enough that live presence should not be trusted.';
-      } else if (offline > 0) {
+      if (offline > 0) {
         overall = 'Mixed readiness';
         overallState = 'degraded';
         sub = `${offline} offline or paused, ${degraded} constrained, ${active} still carrying load.`;
-      } else if (degraded > 0 || telemetryFreshness.level === 'warning') {
+      } else if (staleAgents.length === agents.length && agents.length) {
+        overall = 'Delayed contacts';
+        overallState = 'offline';
+        sub = 'The board is refreshing, but every tracked contact is stale enough that live presence should be treated as uncertain.';
+      } else if (degraded > 0 || staleAgents.length > 0) {
         overall = 'Degraded';
         overallState = 'degraded';
-        sub = `${degraded} units below full tolerance. Treat timings as delayed until the next clean sync.`;
+        sub = `${degraded} units below full tolerance. Contact freshness is mixed across the field.`;
       }
 
       return {
         counts: { total: agents.length, online, active, operational, degraded, offline, activeBriefs, recentTasks24h },
         staleAgents,
         oldestStaleAgent,
-        telemetryFreshness,
+        boardFreshness,
+        contactFreshness,
+        sourceUpdated,
         overall,
         overallState,
         sub,
@@ -1446,37 +1454,37 @@
 
       freshnessWell.classList.remove('operational', 'degraded', 'offline');
       freshnessWell.classList.add(
-        metrics.telemetryFreshness.level === 'fresh'
+        metrics.boardFreshness.level === 'fresh'
           ? 'operational'
-          : metrics.telemetryFreshness.level === 'warning'
+          : metrics.boardFreshness.level === 'warning'
             ? 'degraded'
             : 'offline'
       );
 
       document.getElementById('overallStatusText').textContent = metrics.overall;
       document.getElementById('overallStatusSub').textContent = metrics.sub;
-      document.getElementById('freshnessText').textContent = metrics.telemetryFreshness.title;
+      document.getElementById('freshnessText').textContent = metrics.boardFreshness.level === 'fresh'
+        ? 'Board fresh'
+        : metrics.boardFreshness.level === 'warning'
+          ? 'Board aging'
+          : 'Board stale';
       document.getElementById('freshnessSub').textContent = data.last_updated
-        ? `${prettyDate(data.last_updated, true)}. ${metrics.telemetryFreshness.note}`
-        : metrics.telemetryFreshness.note;
+        ? `${prettyDate(data.last_updated, true)}. ${metrics.sourceUpdated ? `Source snapshot ${relativeOnly(metrics.sourceUpdated).replace(/^Updated\s+/i, '')}.` : 'Board refresh is current.'}`
+        : metrics.boardFreshness.note;
       document.getElementById('agentCountChip').textContent = `${metrics.counts.total} agents tracked`;
 
       setChipState(liveChip, dataSource === 'api' ? 'live' : 'warn');
       document.getElementById('liveBadgeText').textContent = dataSource === 'api'
-        ? (metrics.telemetryFreshness.level === 'fresh' ? 'Status API online' : 'Status API delayed')
+        ? 'Status API online'
         : 'Snapshot mode';
 
-      const staleState = metrics.telemetryFreshness.level === 'fresh'
+      const staleState = metrics.contactFreshness.level === 'fresh'
         ? 'live'
-        : metrics.telemetryFreshness.level === 'warning'
+        : metrics.contactFreshness.level === 'warning'
           ? 'warn'
           : 'offline';
       setChipState(staleChip, staleState);
-      document.getElementById('staleChipText').textContent = metrics.telemetryFreshness.level === 'fresh'
-        ? 'Feed within live window'
-        : metrics.telemetryFreshness.level === 'warning'
-          ? 'Feed aging'
-          : 'Feed stale';
+      document.getElementById('staleChipText').textContent = metrics.contactFreshness.title;
 
       document.getElementById('calloutTitle').textContent = metrics.overall;
       document.getElementById('calloutCopy').textContent = metrics.oldestStaleAgent
