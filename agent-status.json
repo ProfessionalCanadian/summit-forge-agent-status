@@ -189,9 +189,9 @@
       "role": "AI Monetization",
       "specialty": "Revenue opportunity identification and feasibility scoring",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "degraded",
-      "current_task": "Daily monetization brief completed",
+      "current_task": null,
       "last_seen": "2026-04-11T12:30:24.636Z",
       "notes": "TEAM.md says paused, but the scheduled Ledger brief is still running live. Docs/config need reconciliation.",
       "recent_tasks": [
