@@ -111,9 +111,9 @@
       "role": "Operations & Documentation",
       "specialty": "Record-keeping, changelogs, and operational truth",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "good",
-      "current_task": "Midday sync completed",
+      "current_task": null,
       "last_seen": "2026-04-11T16:00:32.317Z",
       "notes": "",
       "recent_tasks": [
