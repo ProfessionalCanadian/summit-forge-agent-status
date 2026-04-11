@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T16:35:38.976Z",
+  "last_updated": "2026-04-11T16:40:25.796Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-11T16:35:38.976Z",
+      "last_seen": "2026-04-11T16:40:24.602Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-11T16:35:38.976Z"
+          "completed_at": "2026-04-11T16:40:24.602Z"
         },
         {
           "task": "Brand Interview Input",
@@ -59,12 +59,16 @@
       "role": "Coding Agent",
       "specialty": "Implementation, refactors, and technical precision",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T08:49:15.910Z",
+      "current_task": "Sfl 3 Directions",
+      "last_seen": "2026-04-11T16:40:25.796Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Sfl 3 Directions",
+          "completed_at": "2026-04-11T16:40:25.796Z"
+        },
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:15.910Z"
@@ -72,10 +76,6 @@
         {
           "task": "Status Page Autonomous Sprint",
           "completed_at": "2026-04-11T05:32:29.358Z"
-        },
-        {
-          "task": "Implement Runtime Warning Tracker",
-          "completed_at": "2026-04-11T01:11:20.438Z"
         }
       ]
     },
@@ -137,12 +137,16 @@
       "role": "Brand Voice & Copywriting",
       "specialty": "Voice, copy polish, and public-facing language",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T08:49:52.193Z",
+      "current_task": "Sfl 3 Directions",
+      "last_seen": "2026-04-11T16:38:48.666Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Sfl 3 Directions",
+          "completed_at": "2026-04-11T16:38:48.666Z"
+        },
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:52.193Z"
@@ -150,10 +154,6 @@
         {
           "task": "Status Page Copy Pass",
           "completed_at": "2026-04-11T05:21:53.503Z"
-        },
-        {
-          "task": "Name The Lead Scoring Tool",
-          "completed_at": "2026-04-10T17:25:32.581Z"
         }
       ]
     },
