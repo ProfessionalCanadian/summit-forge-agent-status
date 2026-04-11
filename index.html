@@ -938,9 +938,9 @@
         total: agents.length,
         online: agents.filter(a => ['awake', 'working', 'standby', 'dreaming'].includes((a.status || '').toLowerCase())).length,
         active: agents.filter(a => ['awake', 'working'].includes((a.status || '').toLowerCase())).length,
+        operational: agents.filter(a => evaluateOperationalState(a) === 'operational').length,
         degraded: agents.filter(a => evaluateOperationalState(a) === 'degraded').length,
-        offline: agents.filter(a => evaluateOperationalState(a) === 'offline').length,
-        healthy: agents.filter(a => String(a.health || '').toLowerCase() === 'good').length
+        offline: agents.filter(a => evaluateOperationalState(a) === 'offline').length
       };
 
       let overall = 'Operational';
@@ -965,7 +965,7 @@
         },
         {
           label: 'Operational',
-          value: counts.healthy,
+          value: counts.operational,
           note: 'Clear to run at full pace.'
         },
         {
