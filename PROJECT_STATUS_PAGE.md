@@ -81,10 +81,14 @@ Build a polished, premium web-based agent status dashboard that Josh can open at
 - [ ] Mock data for all 7 agents
 
 ### Phase 2 — Branding & Identity (requires logo)
-- [ ] Logo integrated into header
-- [ ] Color palette derived from logo
-- [ ] Art style agreed by team
-- [ ] Each agent drafts image generation prompt
+- [x] Logo integrated into header (logo-chrome-light.jpg)
+- [x] Color palette derived from logo (carbon fiber bg, chrome/silver dominant)
+- [x] Art style agreed by team
+- [x] Each agent drafts image generation prompt
+- [x] Quill copy pass: "Full visibility. No noise.", "Active brief", "Agent Operations" title
+- [x] Deployed to GitHub Pages: https://professionalcanadian.github.io/summit-forge-agent-status/
+- [x] CNAME file added for agents.summitforgelabs.com
+- [x] Snapshot-mode fallback clarified while live telemetry is not yet wired
 
 ### Phase 3 — Profile Images
 - [ ] Images generated per agent (all states)
@@ -113,3 +117,9 @@ Build a polished, premium web-based agent status dashboard that Josh can open at
 | 2026-04-09 | Two test portraits generated (Oscar, Sentinel) in playing card style — awaiting Josh verdict | Oscar |
 | 2026-04-09 | Logo variants and plaque photo saved to projects/status-page/ | Oscar |
 | 2026-04-09 | agent-status.json schema defined and populated with initial mock data | Oscar |
+| 2026-04-10 | Phase 2 brand realignment: carbon fiber bg, chrome/silver, logo-chrome-light.jpg swap | Forge |
+| 2026-04-10 | Copy pass by Quill: tagline, title, "Active brief" label updated | Quill |
+| 2026-04-10 | Deployed to GitHub Pages (ProfessionalCanadian/summit-forge-agent-status) | Oscar |
+| 2026-04-10 | CNAME file added: agents.summitforgelabs.com — DNS pending Josh (Namecheap) | Oscar |
+| 2026-04-11 | Switched board to honest snapshot mode until a real telemetry endpoint is available | Oscar |
+| 2026-04-11 | Removed custom-domain redirect from the deployed repo until HTTPS is ready | Oscar |

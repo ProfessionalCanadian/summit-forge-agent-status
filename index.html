@@ -747,7 +747,7 @@
           </div>
         </div>
         <h1>Agent <span>Status</span></h1>
-        <p class="hero-copy">Live command surface for the operator stack. Readiness, load, and recent motion — stripped down and readable.</p>
+        <p class="hero-copy">Operator status board for the team. Live telemetry when available, honest snapshot mode when it is not.</p>
         <div class="hero-meta">
           <div class="chip live"><span class="dot"></span><span id="liveBadgeText">Live feed</span></div>
           <div class="chip"><span class="dot"></span><span id="agentCountChip">0 agents tracked</span></div>
@@ -1063,13 +1063,15 @@
       }
     }
 
-    // TODO: Update API_URL to your VPS IP/domain once the telemetry service is running
-    const API_URL = 'http://217.15.168.86:8743/api/status';
+    // Set this to a real telemetry endpoint when live agent status publishing is available.
+    // Leave null to run in honest snapshot mode off agent-status.json.
+    const API_URL = null;
     const FALLBACK_URL = './agent-status.json';
     const POLL_INTERVAL_MS = 30000;
 
     async function loadData() {
       try {
+        if (!API_URL) throw new Error('Live telemetry endpoint not configured');
         const response = await fetch(API_URL, { cache: 'no-store' });
         if (!response.ok) throw new Error(`API HTTP ${response.status}`);
         const data = await response.json();
@@ -1094,7 +1096,7 @@
       document.getElementById('agentCountChip').textContent = `${summary.counts.total} agents tracked`;
       document.getElementById('liveBadgeText').textContent = dataSource === 'api'
         ? (summary.counts.active > 0 ? 'Live feed active' : 'Live feed ready')
-        : 'Static fallback';
+        : 'Snapshot mode';
       document.getElementById('lastUpdatedText').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
         ? relativeOnly(lastUpdated.toISOString())
         : '--';
@@ -1104,7 +1106,7 @@
       document.getElementById('footerNote').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
         ? (dataSource === 'api'
           ? `Board sync ${prettyDate(lastUpdated.toISOString(), true)}.`
-          : `Fallback sync ${prettyDate(lastUpdated.toISOString(), true)}.`)
+          : `Snapshot sync ${prettyDate(lastUpdated.toISOString(), true)}.`)
         : 'Board standing by.';
 
       renderOverview(summary.counts);

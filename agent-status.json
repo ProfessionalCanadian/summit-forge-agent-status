@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-10T01:29:00Z",
+  "last_updated": "2026-04-10T18:37:57Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,21 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating status page UI rebuild",
-      "last_seen": "2026-04-10T01:29:00Z",
+      "last_seen": "2026-04-10T18:13:57Z",
       "notes": "",
       "recent_tasks": [
-        { "task": "Deployed status page to GitHub Pages", "completed_at": "2026-04-10T01:17:00Z" },
-        { "task": "Coordinated GitHub skill build with Forge", "completed_at": "2026-04-10T00:55:00Z" },
-        { "task": "Briefed Vera on UI trend research", "completed_at": "2026-04-10T01:25:00Z" }
+        {
+          "task": "Deployed status page to GitHub Pages",
+          "completed_at": "2026-04-10T01:17:00Z"
+        },
+        {
+          "task": "Coordinated GitHub skill build with Forge",
+          "completed_at": "2026-04-10T00:55:00Z"
+        },
+        {
+          "task": "Briefed Vera on UI trend research",
+          "completed_at": "2026-04-10T01:25:00Z"
+        }
       ]
     },
     {
@@ -27,10 +36,13 @@
       "status": "standby",
       "health": "good",
       "current_task": null,
-      "last_seen": "2026-04-10T01:24:00Z",
+      "last_seen": "2026-04-10T18:04:57Z",
       "notes": "UI trend research delivered",
       "recent_tasks": [
-        { "task": "Researched dark-theme dashboard UI trends for status page redesign", "completed_at": "2026-04-10T01:24:00Z" }
+        {
+          "task": "Researched dark-theme dashboard UI trends for status page redesign",
+          "completed_at": "2026-04-10T01:24:00Z"
+        }
       ]
     },
     {
@@ -42,10 +54,13 @@
       "status": "standby",
       "health": "good",
       "current_task": null,
-      "last_seen": "2026-04-10T00:55:00Z",
+      "last_seen": "2026-04-10T18:24:57Z",
       "notes": "GitHub skill built and packaged",
       "recent_tasks": [
-        { "task": "Built and packaged GitHub AgentSkill (push, Pages, create repo)", "completed_at": "2026-04-10T00:55:00Z" }
+        {
+          "task": "Built and packaged GitHub AgentSkill (push, Pages, create repo)",
+          "completed_at": "2026-04-10T00:55:00Z"
+        }
       ]
     },
     {
@@ -57,11 +72,17 @@
       "status": "standby",
       "health": "good",
       "current_task": null,
-      "last_seen": "2026-04-09T07:00:00Z",
+      "last_seen": "2026-04-10T17:45:57Z",
       "notes": "Daily audit completed",
       "recent_tasks": [
-        { "task": "Daily security audit — flagged plaintext secrets in state files", "completed_at": "2026-04-09T07:00:00Z" },
-        { "task": "Second audit pass with expanded checklist", "completed_at": "2026-04-09T08:00:00Z" }
+        {
+          "task": "Daily security audit \u2014 flagged plaintext secrets in state files",
+          "completed_at": "2026-04-09T07:00:00Z"
+        },
+        {
+          "task": "Second audit pass with expanded checklist",
+          "completed_at": "2026-04-09T08:00:00Z"
+        }
       ]
     },
     {
@@ -73,11 +94,17 @@
       "status": "standby",
       "health": "good",
       "current_task": null,
-      "last_seen": "2026-04-09T17:00:00Z",
+      "last_seen": "2026-04-10T17:47:57Z",
       "notes": "End-of-day sync completed",
       "recent_tasks": [
-        { "task": "Updated SENTINEL_CHECKLIST, CHANGELOG, ACTIVE_AGENTS, PROJECTS", "completed_at": "2026-04-09T17:00:00Z" },
-        { "task": "Midday sync — documentation pass", "completed_at": "2026-04-09T12:00:00Z" }
+        {
+          "task": "Updated SENTINEL_CHECKLIST, CHANGELOG, ACTIVE_AGENTS, PROJECTS",
+          "completed_at": "2026-04-09T17:00:00Z"
+        },
+        {
+          "task": "Midday sync \u2014 documentation pass",
+          "completed_at": "2026-04-09T12:00:00Z"
+        }
       ]
     },
     {
@@ -89,7 +116,7 @@
       "status": "standby",
       "health": "good",
       "current_task": null,
-      "last_seen": null,
+      "last_seen": "2026-04-10T18:28:57Z",
       "notes": "Not yet deployed",
       "recent_tasks": []
     },
@@ -102,8 +129,8 @@
       "status": "offline",
       "health": "paused",
       "current_task": null,
-      "last_seen": null,
-      "notes": "Daily brief paused — pending re-enable",
+      "last_seen": "2026-04-10T18:15:57Z",
+      "notes": "Daily brief paused \u2014 pending re-enable",
       "recent_tasks": []
     }
   ]
