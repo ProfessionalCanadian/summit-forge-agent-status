@@ -137,9 +137,9 @@
       "role": "Brand Voice & Copywriting",
       "specialty": "Voice, copy polish, and public-facing language",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "good",
-      "current_task": "Status Page Copy Pass",
+      "current_task": null,
       "last_seen": "2026-04-11T05:21:53.503Z",
       "notes": "",
       "recent_tasks": [
