@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T15:33:40.794Z",
+  "last_updated": "2026-04-11T16:00:32.317Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-11T15:33:40.794Z",
+      "last_seen": "2026-04-11T16:00:31.968Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-11T15:33:40.794Z"
+          "completed_at": "2026-04-11T16:00:31.968Z"
         },
         {
           "task": "Brand Interview Input",
@@ -111,12 +111,16 @@
       "role": "Operations & Documentation",
       "specialty": "Record-keeping, changelogs, and operational truth",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T08:49:27.745Z",
+      "current_task": "Midday sync completed",
+      "last_seen": "2026-04-11T16:00:32.317Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Midday sync completed",
+          "completed_at": "2026-04-11T16:00:32.317Z"
+        },
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:27.745Z"
@@ -124,10 +128,6 @@
         {
           "task": "End Of Day Pass And Contradiction Check",
           "completed_at": "2026-04-10T22:01:26.683Z"
-        },
-        {
-          "task": "End-of-day pass completed",
-          "completed_at": "2026-04-10T22:00:44.401Z"
         }
       ]
     },
