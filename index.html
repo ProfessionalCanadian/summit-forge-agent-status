@@ -6,37 +6,37 @@
   <title>Summit Forge Labs | Agent Operations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #090b10;
-      --bg-elevated: #11141b;
-      --panel: #151922;
-      --panel-2: #1a1f29;
-      --panel-3: #202633;
-      --stroke: rgba(210, 218, 232, 0.12);
-      --stroke-strong: rgba(210, 218, 232, 0.2);
+      --bg: #06080c;
+      --bg-2: #0b0f14;
+      --panel: rgba(17, 21, 28, 0.92);
+      --panel-2: rgba(22, 27, 36, 0.94);
+      --panel-3: rgba(27, 34, 45, 0.98);
+      --stroke: rgba(214, 222, 235, 0.12);
+      --stroke-strong: rgba(214, 222, 235, 0.22);
+      --text: #f3f6fb;
+      --text-soft: #c2ccd9;
+      --text-dim: #8793a3;
+      --silver: #ced6e0;
       --gold: #c9a84c;
       --gold-soft: rgba(201, 168, 76, 0.16);
-      --copper: #b87333;
-      --copper-soft: rgba(184, 115, 51, 0.16);
-      --silver: #cad2dd;
-      --silver-dim: #97a0ad;
-      --text: #f4f6f8;
-      --text-soft: #c5ccd5;
-      --text-dim: #85909f;
-      --ok: #5d8f61;
-      --ok-soft: rgba(93, 143, 97, 0.18);
-      --warn: #b58a3a;
-      --warn-soft: rgba(181, 138, 58, 0.18);
-      --down: #8f4d3f;
-      --down-soft: rgba(143, 77, 63, 0.2);
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
-      --radius-xl: 28px;
+      --copper: #b9783c;
+      --ok: #67b37a;
+      --ok-soft: rgba(103, 179, 122, 0.16);
+      --warn: #d0a14c;
+      --warn-soft: rgba(208, 161, 76, 0.18);
+      --danger: #b65e57;
+      --danger-soft: rgba(182, 94, 87, 0.18);
+      --dream: #7c7fe3;
+      --dream-soft: rgba(124, 127, 227, 0.16);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      --radius-xl: 30px;
       --radius-lg: 22px;
       --radius-md: 16px;
       --radius-sm: 12px;
-      --max-width: 1440px;
+      --max-width: 1460px;
     }
 
     * { box-sizing: border-box; }
@@ -44,137 +44,131 @@
     html, body {
       margin: 0;
       min-height: 100%;
-      background:
-        repeating-linear-gradient(
-          45deg,
-          rgba(255,255,255,0.018) 0px,
-          rgba(255,255,255,0.018) 1px,
-          transparent 1px,
-          transparent 8px
-        ),
-        repeating-linear-gradient(
-          -45deg,
-          rgba(255,255,255,0.018) 0px,
-          rgba(255,255,255,0.018) 1px,
-          transparent 1px,
-          transparent 8px
-        ),
-        linear-gradient(180deg, #07090d 0%, #050709 100%);
       color: var(--text);
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(201, 168, 76, 0.08), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 14%),
+        linear-gradient(180deg, #05070a 0%, #070b10 42%, #05070a 100%);
     }
 
-    body::before {
+    body::before,
+    body::after {
       content: '';
       position: fixed;
       inset: 0;
       pointer-events: none;
+    }
+
+    body::before {
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 18%),
-        repeating-linear-gradient(
-          135deg,
-          rgba(255,255,255,0.015) 0,
-          rgba(255,255,255,0.015) 1px,
-          transparent 1px,
-          transparent 10px
-        );
-      opacity: 0.28;
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 10px),
+        repeating-linear-gradient(-135deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 14px);
+      opacity: 0.24;
       mix-blend-mode: screen;
     }
 
+    body::after {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.05), transparent 28%),
+        radial-gradient(circle at 85% 0%, rgba(201, 168, 76, 0.05), transparent 25%);
+      opacity: 0.75;
+    }
+
     .shell {
+      position: relative;
       width: min(calc(100% - 32px), var(--max-width));
       margin: 0 auto;
-      padding: 28px 0 56px;
+      padding: 26px 0 56px;
+      z-index: 1;
     }
 
-    .hero,
-    .overview,
-    .legend,
-    .roster {
+    .panel {
       position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--stroke);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012)),
-        linear-gradient(145deg, rgba(202,210,221,0.02), transparent 26%),
+        linear-gradient(145deg, rgba(206, 214, 224, 0.04), transparent 28%),
         var(--panel);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-      overflow: hidden;
     }
 
-    .hero::before,
-    .overview::before,
-    .legend::before,
-    .agent-card::before {
+    .panel::before {
       content: '';
       position: absolute;
       inset: 0;
-      pointer-events: none;
       border-radius: inherit;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.02);
+      pointer-events: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.015);
     }
 
     .hero {
-      padding: 32px;
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.8fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.9fr);
+      gap: 20px;
+      padding: 28px;
       margin-bottom: 18px;
     }
 
     .eyebrow,
-    .section-kicker {
+    .section-kicker,
+    .metric-label,
+    .meta-label,
+    .status-label,
+    .timeline-title,
+    .card-kicker {
       font-size: 11px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--silver-dim);
-      font-weight: 700;
+      font-weight: 800;
+      color: var(--text-dim);
     }
 
     .brand-row {
       display: flex;
       align-items: center;
       gap: 18px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .brand-mark {
-      width: 74px;
-      height: 74px;
+      width: 76px;
+      height: 76px;
       object-fit: contain;
-      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
       flex: 0 0 auto;
     }
 
     .hero h1 {
-      margin: 12px 0 14px;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 0.92;
-      letter-spacing: -0.04em;
+      margin: 12px 0 12px;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
       text-transform: uppercase;
       max-width: 10ch;
     }
 
-    .hero h1 span {
-      color: var(--gold);
-    }
+    .hero h1 span { color: var(--gold); }
 
     .hero-copy {
-      max-width: 44ch;
+      margin: 0 0 18px;
+      max-width: 46ch;
       color: var(--text-soft);
       font-size: 15px;
-      line-height: 1.55;
-      margin-bottom: 20px;
+      line-height: 1.6;
     }
 
-    .hero-meta {
+    .hero-meta,
+    .signal-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .chip {
+    .chip,
+    .signal-chip {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -185,383 +179,482 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
       color: var(--text-soft);
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
-    .chip .dot {
-      width: 8px;
-      height: 8px;
+    .chip-dot,
+    .signal-dot,
+    .state-dot,
+    .legend-dot {
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
-      background: var(--silver);
-      box-shadow: 0 0 0 6px rgba(202,210,221,0.1);
+      background: currentColor;
+      box-shadow: 0 0 0 6px rgba(255,255,255,0.08);
+      flex: 0 0 auto;
     }
 
-    .chip.live .dot {
-      background: var(--ok);
-      animation: pulse 2s ease-in-out infinite;
-    }
+    .chip.live { color: var(--ok); }
+    .chip.warn { color: var(--warn); }
+    .chip.offline { color: var(--danger); }
+    .chip.live .chip-dot { animation: pulse 2s ease-in-out infinite; }
 
     .hero-side {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      justify-content: space-between;
+      display: grid;
+      gap: 14px;
+    }
+
+    .status-stack {
+      display: grid;
+      gap: 14px;
     }
 
     .status-well {
-      position: relative;
-      padding: 20px 20px 18px;
+      padding: 18px 18px 16px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(202,210,221,0.18);
+      border: 1px solid var(--stroke-strong);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
-        linear-gradient(145deg, rgba(202,210,221,0.04), transparent 42%),
-        var(--bg-elevated);
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)),
+        linear-gradient(145deg, rgba(206,214,224,0.05), transparent 40%),
+        var(--bg-2);
     }
 
-    .status-well-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--silver-dim);
-      font-weight: 700;
+    .status-main {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
       margin-bottom: 8px;
     }
 
-    .status-well-value {
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
-      line-height: 0.95;
+    .status-value {
+      font-size: clamp(1.8rem, 3.6vw, 2.9rem);
+      line-height: 0.94;
       letter-spacing: -0.05em;
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
-      margin-bottom: 8px;
     }
 
-    .status-well-sub {
-      color: var(--text-soft);
+    .status-sub {
       font-size: 14px;
-      line-height: 1.45;
+      line-height: 1.5;
+      color: var(--text-soft);
+    }
+
+    .status-flare {
+      min-width: 14px;
+      width: 14px;
+      border-radius: 999px;
+      align-self: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.28), currentColor);
+      box-shadow: 0 0 28px color-mix(in srgb, currentColor 38%, transparent);
+    }
+
+    .status-well.operational { color: var(--ok); }
+    .status-well.degraded { color: var(--warn); }
+    .status-well.offline { color: var(--danger); }
+
+    .signal-grid,
+    .overview-grid,
+    .legend-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .signal-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .signal-card,
+    .stat-card,
+    .legend-card,
+    .meta-block,
+    .health-band,
+    .timeline,
+    .board-callout {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--stroke);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        var(--panel-2);
+    }
+
+    .signal-card,
+    .stat-card,
+    .legend-card,
+    .meta-block,
+    .health-band,
+    .timeline,
+    .board-callout {
+      padding: 16px;
+    }
+
+    .signal-value,
+    .stat-value {
+      margin: 10px 0 8px;
+      font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+
+    .signal-note,
+    .stat-note,
+    .legend-copy,
+    .meta-value,
+    .health-copy,
+    .callout-copy {
+      color: var(--text-soft);
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     .section-divider {
-      position: relative;
       height: 1px;
-      margin: 6px 6px 20px;
-      background: linear-gradient(90deg, transparent, rgba(202,210,221,0.5), transparent);
+      margin: 4px 8px 18px;
+      background: linear-gradient(90deg, transparent, rgba(214, 222, 235, 0.42), transparent);
     }
 
-    .section-divider::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(202,210,221,0.9) 0%, rgba(202,210,221,0.2) 45%, transparent 70%);
-      box-shadow: 0 0 24px rgba(202,210,221,0.3);
-    }
-
-    .overview {
+    .overview,
+    .legend,
+    .roster {
       padding: 18px;
       margin-bottom: 18px;
     }
 
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
+    .overview-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .legend-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 
-    .stat-card {
-      position: relative;
-      padding: 16px 16px 18px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--stroke);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.032), rgba(255,255,255,0.01)),
-        var(--panel-2);
-    }
-
-    .stat-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-      pointer-events: none;
-    }
-
-    .stat-label {
-      color: var(--silver-dim);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .stat-value {
-      font-size: clamp(1.5rem, 3vw, 2.25rem);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .stat-note {
-      color: var(--text-dim);
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-    .legend {
-      padding: 18px;
-      margin-bottom: 20px;
-    }
-
-    .legend-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .legend-chip {
+    .legend-card {
       display: flex;
       gap: 12px;
-      align-items: flex-start;
-      padding: 15px 14px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--stroke);
-      background: var(--panel-2);
+      align-items: start;
     }
 
-    .legend-swatch {
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      margin-top: 2px;
-      flex: 0 0 auto;
-    }
-
-    .legend-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-
-    .legend-copy {
+    .legend-card-title {
       font-size: 12px;
-      color: var(--text-dim);
-      line-height: 1.45;
+      line-height: 1.2;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 6px;
     }
+
+    .legend-operational { color: var(--ok); }
+    .legend-working { color: var(--gold); }
+    .legend-standby { color: var(--silver); }
+    .legend-dreaming { color: var(--dream); }
+    .legend-degraded { color: var(--warn); }
+    .legend-offline { color: var(--danger); }
 
     .roster-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .roster {
-      padding: 24px 22px 22px;
+      margin-bottom: 18px;
     }
 
     .roster-title {
-      font-size: clamp(1.4rem, 2.4vw, 2rem);
       margin: 6px 0 0;
-      letter-spacing: -0.03em;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      letter-spacing: -0.04em;
       text-transform: uppercase;
     }
 
     .roster-sub {
+      max-width: 54ch;
       color: var(--text-dim);
       font-size: 14px;
-      max-width: 46ch;
       line-height: 1.55;
+    }
+
+    .board-callout {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .callout-title {
+      margin: 8px 0 6px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
     }
 
     .agent-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 16px;
     }
 
     .agent-card {
       position: relative;
-      display: flex;
-      flex-direction: column;
+      overflow: hidden;
       min-height: 100%;
       border-radius: var(--radius-lg);
       border: 1px solid var(--stroke);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.012)),
-        linear-gradient(145deg, rgba(202,210,221,0.02), transparent 24%),
-        linear-gradient(180deg, var(--panel-2), var(--panel));
-      overflow: hidden;
-      box-shadow: var(--shadow), inset 0 1px 0 rgba(202,210,221,0.12);
+        linear-gradient(145deg, rgba(206,214,224,0.03), transparent 30%),
+        linear-gradient(180deg, var(--panel-2), #0f1319);
+      box-shadow: var(--shadow);
     }
 
-    .agent-card::after {
+    .agent-card::before {
       content: '';
       position: absolute;
       left: 0;
       right: 0;
       top: 0;
-      height: 5px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.12), currentColor 26%, rgba(255,255,255,0.1));
-      opacity: 1;
-      box-shadow: 0 0 20px color-mix(in srgb, currentColor 35%, transparent);
+      height: 4px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.08), currentColor 30%, rgba(255,255,255,0.08));
+      box-shadow: 0 0 22px color-mix(in srgb, currentColor 44%, transparent);
+    }
+
+    .agent-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.015);
     }
 
     .agent-card.operational { color: var(--ok); }
     .agent-card.degraded { color: var(--warn); }
-    .agent-card.offline { color: var(--down); }
+    .agent-card.offline { color: var(--danger); }
 
     .agent-inner {
-      padding: 18px;
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: 14px;
       height: 100%;
+      padding: 18px;
     }
 
     .agent-head {
       display: grid;
-      grid-template-columns: 72px minmax(0, 1fr);
+      grid-template-columns: 92px minmax(0, 1fr);
       gap: 14px;
       align-items: center;
     }
 
-    .portrait {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
+    .portrait-shell {
+      position: relative;
+      width: 92px;
+      height: 92px;
+      border-radius: 22px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(145deg, rgba(201,168,76,0.12), rgba(255,255,255,0.04));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.09);
+      background: linear-gradient(145deg, rgba(201,168,76,0.16), rgba(255,255,255,0.04));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 12px 24px rgba(0, 0, 0, 0.28);
+      isolation: isolate;
     }
 
-    .portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
+    .portrait-shell img,
     .portrait-fallback {
       width: 100%;
       height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .portrait-fallback {
       display: grid;
       place-items: center;
       color: var(--gold);
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      background: linear-gradient(145deg, rgba(201,168,76,0.14), rgba(184,115,51,0.08));
+      background: linear-gradient(145deg, rgba(201,168,76,0.18), rgba(185,120,60,0.1));
+    }
+
+    .portrait-shell::before,
+    .portrait-shell::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .portrait-shell::before {
+      background: linear-gradient(180deg, rgba(255,255,255,0.14), transparent 35%, rgba(0,0,0,0.18));
+    }
+
+    .portrait-shell::after {
+      opacity: 0;
+      transition: opacity 180ms ease;
+    }
+
+    .portrait-shell.state-working img {
+      filter: saturate(1.02) contrast(1.04);
+    }
+
+    .portrait-shell.state-working::after {
+      opacity: 1;
+      background: radial-gradient(circle at 75% 20%, rgba(201, 168, 76, 0.2), transparent 35%);
+    }
+
+    .portrait-shell.state-standby img {
+      filter: saturate(0.86) contrast(1.02) brightness(0.98);
+    }
+
+    .portrait-shell.state-standby::after {
+      opacity: 1;
+      background: linear-gradient(180deg, rgba(206,214,224,0.18), transparent 42%);
+    }
+
+    .portrait-shell.state-dreaming img {
+      filter: saturate(0.82) brightness(0.9) contrast(1.04);
+    }
+
+    .portrait-shell.state-dreaming::after {
+      opacity: 1;
+      background:
+        radial-gradient(circle at 70% 24%, rgba(124, 127, 227, 0.34), transparent 32%),
+        linear-gradient(180deg, rgba(36, 41, 76, 0.26), rgba(6,8,12,0.16));
+    }
+
+    .portrait-shell.state-degraded img {
+      filter: saturate(0.7) contrast(1.06) brightness(0.94);
+    }
+
+    .portrait-shell.state-degraded::after {
+      opacity: 1;
+      background:
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 5px),
+        linear-gradient(180deg, rgba(208, 161, 76, 0.28), rgba(78, 47, 15, 0.18));
+    }
+
+    .portrait-shell.state-offline img {
+      filter: grayscale(1) contrast(0.92) brightness(0.72);
+    }
+
+    .portrait-shell.state-offline::after {
+      opacity: 1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.34)),
+        linear-gradient(135deg, rgba(182, 94, 87, 0.18), rgba(0,0,0,0.28));
+    }
+
+    .avatar-state-badge {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      z-index: 2;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(8, 11, 16, 0.82);
+      backdrop-filter: blur(8px);
+      font-size: 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.32);
     }
 
     .agent-name-row {
       display: flex;
-      align-items: flex-start;
+      align-items: start;
       justify-content: space-between;
       gap: 10px;
       margin-bottom: 6px;
     }
 
     .agent-name {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       line-height: 1;
-      letter-spacing: -0.03em;
-      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-weight: 900;
       text-transform: uppercase;
     }
 
     .agent-role {
+      margin-top: 7px;
       font-size: 11px;
       line-height: 1.4;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--copper);
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-weight: 800;
     }
 
     .agent-model {
-      font-size: 12px;
       color: var(--text-dim);
+      font-size: 12px;
+      line-height: 1.45;
       word-break: break-word;
     }
 
     .state-pill {
-      flex: 0 0 auto;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 10px;
+      padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.04);
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
-    .state-pill .live-pip {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: currentColor;
-      opacity: 0.95;
-    }
+    .state-pill.active .state-dot { animation: pulse 2s ease-in-out infinite; }
 
-    .state-pill.active .live-pip {
-      animation: pulse 2s ease-in-out infinite;
-    }
+    .state-pill.state-working { color: var(--gold); }
+    .state-pill.state-standby { color: var(--silver); }
+    .state-pill.state-dreaming { color: var(--dream); }
+    .state-pill.state-degraded { color: var(--warn); }
+    .state-pill.state-offline { color: var(--danger); }
 
-    .health-banner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .health-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 12px;
-      padding: 13px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.025);
-    }
-
-    .health-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--silver-dim);
-      font-weight: 700;
-      margin-bottom: 4px;
+      align-items: center;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        var(--panel-3);
     }
 
     .health-value {
+      margin-top: 7px;
       font-size: 1rem;
-      font-weight: 800;
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
     }
 
-    .specialty {
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--text-soft);
+    .health-band-strength {
+      min-width: 98px;
+      height: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+    }
+
+    .health-band-strength span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, currentColor, rgba(255,255,255,0.32));
+      box-shadow: 0 0 22px color-mix(in srgb, currentColor 30%, transparent);
     }
 
     .meta-grid {
@@ -570,46 +663,13 @@
       gap: 10px;
     }
 
-    .meta-block {
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.025);
-    }
-
-    .meta-label {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--silver-dim);
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .meta-value {
-      font-size: 13px;
-      color: var(--text-soft);
-      line-height: 1.45;
-    }
-
-    .meta-value.strong {
-      font-weight: 700;
+    .meta-value strong {
       color: var(--text);
+      font-weight: 800;
     }
 
-    .timeline {
-      margin-top: auto;
-      padding-top: 4px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .timeline-title {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--silver-dim);
-      font-weight: 700;
-      margin-bottom: 10px;
+    .timeline-content {
+      margin-top: 12px;
     }
 
     .timeline-list {
@@ -629,10 +689,9 @@
 
     .timeline-marker {
       position: relative;
-      width: 14px;
-      min-height: 100%;
       display: flex;
       justify-content: center;
+      min-height: 100%;
     }
 
     .timeline-marker::before {
@@ -650,28 +709,29 @@
       content: '';
       position: absolute;
       top: 16px;
-      bottom: -14px;
+      bottom: -12px;
       left: 50%;
       width: 1px;
       transform: translateX(-50%);
-      background: linear-gradient(180deg, rgba(202,210,221,0.16), transparent);
+      background: linear-gradient(180deg, rgba(214,222,235,0.16), transparent);
     }
 
     .timeline-item:last-child .timeline-marker::after { display: none; }
 
     .timeline-task {
+      color: var(--text-soft);
       font-size: 12px;
       line-height: 1.45;
-      color: var(--text-soft);
       margin-bottom: 4px;
     }
 
     .timeline-time {
-      font-size: 11px;
       color: var(--text-dim);
-      text-transform: uppercase;
+      font-size: 11px;
+      line-height: 1.35;
       letter-spacing: 0.08em;
-      font-weight: 600;
+      text-transform: uppercase;
+      font-weight: 700;
     }
 
     .empty-timeline {
@@ -686,135 +746,163 @@
 
     .footer-note {
       margin-top: 18px;
+      text-align: right;
       color: var(--text-dim);
       font-size: 12px;
-      text-align: right;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-
-    .status-operational { color: var(--ok); }
-    .status-degraded { color: var(--warn); }
-    .status-offline { color: var(--down); }
-
-    .bg-operational { background: var(--ok-soft); }
-    .bg-degraded { background: var(--warn-soft); }
-    .bg-offline { background: var(--down-soft); }
 
     .hidden { display: none !important; }
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 0.9; }
-      50% { transform: scale(1.18); opacity: 1; }
+      50% { transform: scale(1.16); opacity: 1; }
     }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1180px) {
       .hero { grid-template-columns: 1fr; }
-      .overview-grid,
-      .legend-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .signal-grid { grid-template-columns: 1fr 1fr; }
+      .overview-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .legend-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 820px) {
       .shell { width: min(calc(100% - 20px), var(--max-width)); padding-top: 18px; }
-      .hero,
-      .overview,
-      .legend,
-      .roster { border-radius: 22px; }
-      .hero,
-      .roster { padding: 18px; }
-      .overview,
-      .legend { padding: 16px; }
-      .overview-grid,
-      .legend-row,
-      .meta-grid { grid-template-columns: 1fr; }
-      .agent-head { grid-template-columns: 64px minmax(0, 1fr); }
-      .portrait { width: 64px; height: 64px; border-radius: 16px; }
-      .agent-name-row { flex-direction: column; }
-      .roster-head { align-items: flex-start; flex-direction: column; }
+      .hero, .overview, .legend, .roster { padding: 18px; border-radius: 22px; }
+      .signal-grid, .overview-grid, .legend-grid, .meta-grid { grid-template-columns: 1fr; }
+      .roster-head, .board-callout, .agent-name-row { flex-direction: column; align-items: flex-start; }
+      .agent-head { grid-template-columns: 76px minmax(0, 1fr); }
+      .portrait-shell { width: 76px; height: 76px; border-radius: 18px; }
+      .health-band { grid-template-columns: 1fr; }
       .footer-note { text-align: left; }
     }
   </style>
 </head>
 <body>
   <main class="shell">
-    <section class="hero">
+    <section class="hero panel">
       <div>
         <div class="brand-row">
           <img class="brand-mark" src="./logo-chrome-light.jpg" alt="Summit Forge Labs logo" />
           <div>
             <div class="eyebrow">Summit Forge Labs</div>
-            <div style="font-size:13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; margin-top: 6px;">Full visibility. No noise.</div>
+            <div style="margin-top: 6px; color: var(--text-dim); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 800;">Forged telemetry, no theater</div>
           </div>
         </div>
-        <h1>Agent <span>Status</span></h1>
-        <p class="hero-copy">Operator status board for the team. Live telemetry when available, honest snapshot mode when it is not.</p>
+        <h1>Agent <span>Operations</span></h1>
+        <p class="hero-copy">Live board for the current operator field. It reads what the feed can honestly prove, marks when data is getting stale, and keeps visual state tied to actual status instead of decoration.</p>
         <div class="hero-meta">
-          <div class="chip live"><span class="dot"></span><span id="liveBadgeText">Live feed</span></div>
-          <div class="chip"><span class="dot"></span><span id="agentCountChip">0 agents tracked</span></div>
+          <div class="chip live" id="liveChip"><span class="chip-dot"></span><span id="liveBadgeText">Linking telemetry</span></div>
+          <div class="chip"><span class="chip-dot"></span><span id="agentCountChip">0 agents tracked</span></div>
+          <div class="chip" id="staleChip"><span class="chip-dot"></span><span id="staleChipText">Freshness waiting</span></div>
         </div>
       </div>
       <div class="hero-side">
-        <div class="status-well">
-          <div class="status-well-label">Overall team status</div>
-          <div class="status-well-value" id="overallStatusText">Loading</div>
-          <div class="status-well-sub" id="overallStatusSub">Reading agent telemetry and assembling status board.</div>
+        <div class="status-stack">
+          <div class="status-well operational" id="overallStatusWell">
+            <div class="status-main">
+              <div>
+                <div class="status-label">Overall team status</div>
+                <div class="status-value" id="overallStatusText">Loading</div>
+              </div>
+              <div class="status-flare"></div>
+            </div>
+            <div class="status-sub" id="overallStatusSub">Reading agent telemetry and locking the board.</div>
+          </div>
+          <div class="status-well" id="freshnessWell">
+            <div class="status-main">
+              <div>
+                <div class="status-label">Telemetry freshness</div>
+                <div class="status-value" id="freshnessText" style="font-size: clamp(1.2rem, 2.4vw, 1.85rem);">--</div>
+              </div>
+              <div class="status-flare"></div>
+            </div>
+            <div class="status-sub" id="freshnessSub">Awaiting first telemetry stamp.</div>
+          </div>
         </div>
-        <div class="status-well">
-          <div class="status-well-label">Last update</div>
-          <div class="status-well-value" id="lastUpdatedText" style="font-size: clamp(1.15rem, 2.2vw, 1.7rem); line-height: 1.1;">--</div>
-          <div class="status-well-sub" id="lastUpdatedSub">Awaiting first telemetry stamp.</div>
+        <div class="signal-grid" id="signalGrid">
+          <article class="signal-card">
+            <div class="metric-label">Fetch latency</div>
+            <div class="signal-value">--</div>
+            <div class="signal-note">Waiting for first request.</div>
+          </article>
         </div>
       </div>
     </section>
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <section class="overview">
+    <section class="overview panel">
       <div class="section-kicker">At a glance</div>
       <div class="overview-grid" id="overviewGrid">
         <article class="stat-card">
-          <div class="stat-label">Agents online</div>
+          <div class="metric-label">Agents online</div>
           <div class="stat-value">--</div>
           <div class="stat-note">Waiting for live data.</div>
         </article>
       </div>
     </section>
 
-    <section class="legend">
-      <div class="section-kicker">Readiness codes</div>
-      <div class="legend-row">
-        <div class="legend-chip">
-          <div class="legend-swatch bg-operational"></div>
+    <section class="legend panel">
+      <div class="section-kicker">State language</div>
+      <div class="legend-grid">
+        <article class="legend-card">
+          <div class="legend-dot legend-operational"></div>
           <div>
-            <div class="legend-title status-operational">Operational</div>
-            <div class="legend-copy">Locked in, reachable, and holding full working tolerance.</div>
+            <div class="legend-card-title legend-operational">Operational</div>
+            <div class="legend-copy">Reachable, healthy, and ready to carry load at full pace.</div>
           </div>
-        </div>
-        <div class="legend-chip">
-          <div class="legend-swatch bg-degraded"></div>
+        </article>
+        <article class="legend-card">
+          <div class="legend-dot legend-working"></div>
           <div>
-            <div class="legend-title status-degraded">Degraded</div>
-            <div class="legend-copy">Still on the board, but running under constraint, drift, or reduced tempo.</div>
+            <div class="legend-card-title legend-working">Working</div>
+            <div class="legend-copy">Awake and visibly in motion, with a live brief or active session.</div>
           </div>
-        </div>
-        <div class="legend-chip">
-          <div class="legend-swatch bg-offline"></div>
+        </article>
+        <article class="legend-card">
+          <div class="legend-dot legend-standby"></div>
           <div>
-            <div class="legend-title status-offline">Offline</div>
-            <div class="legend-copy">Cold, parked, or unreachable. No output should be expected.</div>
+            <div class="legend-card-title legend-standby">Standby</div>
+            <div class="legend-copy">Available and coherent, but not currently carrying active work.</div>
           </div>
-        </div>
+        </article>
+        <article class="legend-card">
+          <div class="legend-dot legend-dreaming"></div>
+          <div>
+            <div class="legend-card-title legend-dreaming">Dreaming</div>
+            <div class="legend-copy">Quiet mode, preserving context or waiting on the next wake event.</div>
+          </div>
+        </article>
+        <article class="legend-card">
+          <div class="legend-dot legend-degraded"></div>
+          <div>
+            <div class="legend-card-title legend-degraded">Degraded / Offline</div>
+            <div class="legend-copy">Constraint, pause, or loss of contact. Health problems outrank activity visually.</div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="roster">
+    <section class="roster panel">
       <div class="roster-head">
         <div>
           <div class="section-kicker">Operator field</div>
           <h2 class="roster-title">Agent deck</h2>
         </div>
-        <div class="roster-sub">Each card is built for rapid read, then detail. Status rails carry urgency. The rest stays quiet, sharp, and deliberate.</div>
+        <div class="roster-sub">Cards sort by urgency first. Degraded and cold units stay at the front so the board reads like operations, not wallpaper.</div>
       </div>
+
+      <div class="board-callout" id="boardCallout">
+        <div>
+          <div class="card-kicker">Board readout</div>
+          <div class="callout-title" id="calloutTitle">Standing by</div>
+          <div class="callout-copy" id="calloutCopy">No telemetry summary yet.</div>
+        </div>
+        <div class="signal-row" id="signalRow"></div>
+      </div>
+
       <div class="agent-grid" id="agentGrid"></div>
       <div class="footer-note" id="footerNote">Status board idle.</div>
     </section>
@@ -824,25 +912,29 @@
     <article class="agent-card operational">
       <div class="agent-inner">
         <div class="agent-head">
-          <div class="portrait"></div>
+          <div class="portrait-shell state-working">
+            <div class="portrait-fallback">??</div>
+            <div class="avatar-state-badge">⚒️</div>
+          </div>
           <div>
             <div class="agent-name-row">
               <div>
                 <div class="agent-name"></div>
                 <div class="agent-role"></div>
               </div>
-              <div class="state-pill"><span class="live-pip"></span><span class="state-pill-text"></span></div>
+              <div class="state-pill state-working"><span class="state-dot"></span><span class="state-pill-text"></span></div>
             </div>
             <div class="agent-model"></div>
           </div>
         </div>
 
-        <div class="health-banner">
+        <div class="health-band">
           <div>
-            <div class="health-label">Health state</div>
+            <div class="meta-label">Health state</div>
             <div class="health-value"></div>
+            <div class="health-copy"></div>
           </div>
-          <div class="specialty"></div>
+          <div class="health-band-strength"><span></span></div>
         </div>
 
         <div class="meta-grid">
@@ -852,7 +944,15 @@
           </div>
           <div class="meta-block">
             <div class="meta-label">Last contact</div>
-            <div class="meta-value meta-last-seen strong"></div>
+            <div class="meta-value meta-last-seen"></div>
+          </div>
+          <div class="meta-block">
+            <div class="meta-label">Readiness read</div>
+            <div class="meta-value meta-readiness"></div>
+          </div>
+          <div class="meta-block">
+            <div class="meta-label">Recent output</div>
+            <div class="meta-value meta-recent-count"></div>
           </div>
         </div>
 
@@ -870,12 +970,28 @@
   </template>
 
   <script>
+    const API_URL = 'https://tools.summitforgelabs.com/api/status';
+    const FALLBACK_URL = './agent-status.json';
+    const POLL_INTERVAL_MS = 30000;
+    const STALE_WARN_MS = 15 * 60 * 1000;
+    const STALE_CRITICAL_MS = 60 * 60 * 1000;
+    const RECENT_TASK_WINDOW_MS = 24 * 60 * 60 * 1000;
+
     const agentGrid = document.getElementById('agentGrid');
     const overviewGrid = document.getElementById('overviewGrid');
+    const signalGrid = document.getElementById('signalGrid');
+    const signalRow = document.getElementById('signalRow');
     const template = document.getElementById('agentCardTemplate');
 
-    const statusPriority = { offline: 0, standby: 1, dreaming: 1, awake: 2, working: 2 };
-    const healthPriority = { paused: 0, bad: 0, degraded: 1, good: 2 };
+    const statusPriority = { degraded: 5, offline: 4, working: 3, awake: 3, standby: 2, dreaming: 1 };
+    const healthPriority = { bad: 3, degraded: 2, paused: 1, good: 0 };
+    const avatarStateIcons = {
+      working: '⚒️',
+      standby: '◌',
+      dreaming: '☾',
+      degraded: '⚠',
+      offline: '⛔'
+    };
 
     function escapeHtml(value) {
       return String(value ?? '')
@@ -884,6 +1000,25 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+    }
+
+    function pluralize(value, singular, plural = `${singular}s`) {
+      return `${value} ${value === 1 ? singular : plural}`;
+    }
+
+    function humanize(value) {
+      return String(value || 'unknown').replace(/_/g, ' ').replace(/\b\w/g, s => s.toUpperCase());
+    }
+
+    function formatDuration(ms) {
+      if (!Number.isFinite(ms) || ms < 0) return 'Unknown';
+      const min = Math.round(ms / 60000);
+      if (min < 1) return 'Under 1 minute';
+      if (min < 60) return pluralize(min, 'minute');
+      const hr = Math.floor(min / 60);
+      const rem = min % 60;
+      if (!rem) return pluralize(hr, 'hour');
+      return `${pluralize(hr, 'hour')} ${pluralize(rem, 'minute')}`;
     }
 
     function prettyDate(iso, withRelative = false) {
@@ -897,14 +1032,8 @@
         minute: '2-digit'
       });
       if (!withRelative) return absolute;
-      const diffMs = Date.now() - date.getTime();
-      const diffMin = Math.round(diffMs / 60000);
-      if (Math.abs(diffMin) < 1) return `${absolute} · just now`;
-      if (diffMin < 60) return `${absolute} · ${diffMin}m ago`;
-      const diffHr = Math.round(diffMin / 60);
-      if (diffHr < 24) return `${absolute} · ${diffHr}h ago`;
-      const diffDay = Math.round(diffHr / 24);
-      return `${absolute} · ${diffDay}d ago`;
+      const relative = relativeOnly(iso);
+      return `${absolute} · ${relative.replace(/^Updated\s+/i, '')}`;
     }
 
     function relativeOnly(iso) {
@@ -912,95 +1041,135 @@
       const date = new Date(iso);
       if (Number.isNaN(date.getTime())) return 'Unknown timing';
       const diffMs = Date.now() - date.getTime();
+      if (diffMs < 0) return 'Updated moments ago';
       const diffMin = Math.round(diffMs / 60000);
-      if (Math.abs(diffMin) < 1) return 'Updated just now';
-      if (diffMin < 60) return `Updated ${diffMin} minute${diffMin === 1 ? '' : 's'} ago`;
+      if (diffMin < 1) return 'Updated just now';
+      if (diffMin < 60) return `Updated ${pluralize(diffMin, 'minute')} ago`;
       const diffHr = Math.round(diffMin / 60);
-      if (diffHr < 24) return `Updated ${diffHr} hour${diffHr === 1 ? '' : 's'} ago`;
+      if (diffHr < 24) return `Updated ${pluralize(diffHr, 'hour')} ago`;
       const diffDay = Math.round(diffHr / 24);
-      return `Updated ${diffDay} day${diffDay === 1 ? '' : 's'} ago`;
-    }
-
-    function humanize(value) {
-      return String(value || 'unknown').replace(/_/g, ' ').replace(/\b\w/g, s => s.toUpperCase());
+      return `Updated ${pluralize(diffDay, 'day')} ago`;
     }
 
     function evaluateOperationalState(agent) {
       const status = String(agent.status || '').toLowerCase();
       const health = String(agent.health || '').toLowerCase();
-      if (status === 'offline' || health === 'paused' || health === 'bad') return 'offline';
-      if (status === 'standby' || status === 'dreaming' || health === 'degraded') return 'degraded';
+      if (status === 'offline' || health === 'paused') return 'offline';
+      if (health === 'bad' || health === 'degraded') return 'degraded';
+      if (status === 'standby' || status === 'dreaming') return 'degraded';
       return 'operational';
     }
 
-    function overallSummary(agents) {
-      const counts = {
-        total: agents.length,
-        online: agents.filter(a => ['awake', 'working', 'standby', 'dreaming'].includes((a.status || '').toLowerCase())).length,
-        active: agents.filter(a => ['awake', 'working'].includes((a.status || '').toLowerCase())).length,
-        operational: agents.filter(a => evaluateOperationalState(a) === 'operational').length,
-        degraded: agents.filter(a => evaluateOperationalState(a) === 'degraded').length,
-        offline: agents.filter(a => evaluateOperationalState(a) === 'offline').length
-      };
+    function evaluateAvatarState(agent, freshnessLevel) {
+      const status = String(agent.status || '').toLowerCase();
+      const health = String(agent.health || '').toLowerCase();
+      if (status === 'offline' || health === 'paused') return 'offline';
+      if (health === 'bad' || health === 'degraded' || freshnessLevel === 'critical') return 'degraded';
+      if (status === 'dreaming') return 'dreaming';
+      if (status === 'standby') return 'standby';
+      return 'working';
+    }
 
-      let overall = 'Operational';
-      let sub = `${counts.active} in motion, ${counts.online} on the board, ${counts.total} tracked.`;
-      if (counts.offline > 0) {
-        overall = 'Mixed readiness';
-        sub = `${counts.offline} cold or paused. ${counts.active} in motion, ${counts.degraded} under reduced readiness.`;
-      } else if (counts.degraded > 0) {
-        overall = 'Degraded';
-        sub = `${counts.degraded} running below full tolerance. ${counts.active} still carrying active load.`;
+    function getFreshnessLevel(iso) {
+      if (!iso) return 'critical';
+      const time = new Date(iso).getTime();
+      if (!Number.isFinite(time)) return 'critical';
+      const age = Date.now() - time;
+      if (age <= STALE_WARN_MS) return 'fresh';
+      if (age <= STALE_CRITICAL_MS) return 'warning';
+      return 'critical';
+    }
+
+    function getFreshnessCopy(iso) {
+      const level = getFreshnessLevel(iso);
+      if (!iso) return { level, title: 'No telemetry', note: 'No timestamp supplied by the feed.' };
+      const ageMs = Date.now() - new Date(iso).getTime();
+      if (level === 'fresh') {
+        return { level, title: 'Fresh feed', note: `${relativeOnly(iso)}. Feed age ${formatDuration(Math.max(ageMs, 0))}.` };
       }
-
-      return { counts, overall, sub };
+      if (level === 'warning') {
+        return { level, title: 'Aging feed', note: `${relativeOnly(iso)}. Treat as a delayed snapshot.` };
+      }
+      return { level, title: 'Stale feed', note: `${relativeOnly(iso)}. Live presence may no longer be trustworthy.` };
     }
 
-    function renderOverview(counts) {
-      const cards = [
-        {
-          label: 'Agents online',
-          value: counts.online,
-          note: `${counts.active} carrying live workload.`
-        },
-        {
-          label: 'Operational',
-          value: counts.operational,
-          note: 'Clear to run at full pace.'
-        },
-        {
-          label: 'Degraded',
-          value: counts.degraded,
-          note: 'Available, but not at full edge.'
-        },
-        {
-          label: 'Offline',
-          value: counts.offline,
-          note: 'Parked, paused, or out of circuit.'
+    function getHealthStrength(agent) {
+      const health = String(agent.health || '').toLowerCase();
+      if (health === 'good') return 100;
+      if (health === 'degraded') return 58;
+      if (health === 'bad') return 34;
+      if (health === 'paused') return 12;
+      return 46;
+    }
+
+    function getRecentTaskCount(agent) {
+      const now = Date.now();
+      const tasks = Array.isArray(agent.recent_tasks) ? agent.recent_tasks : [];
+      return tasks.filter(task => {
+        const completed = new Date(task.completed_at || 0).getTime();
+        return Number.isFinite(completed) && now - completed <= RECENT_TASK_WINDOW_MS;
+      }).length;
+    }
+
+    function isActiveBrief(agent) {
+      const currentTask = String(agent.current_task || '').trim();
+      return currentTask && !/^idle$/i.test(currentTask);
+    }
+
+    function buildAvatarCandidates(agent, avatarState) {
+      const base = `./images/${agent.id}`;
+      const status = String(agent.status || '').toLowerCase();
+      const health = String(agent.health || '').toLowerCase();
+      const names = [avatarState];
+      if (status && !names.includes(status)) names.push(status);
+      if (health && !names.includes(health)) names.push(health);
+      if (!names.includes('awake')) names.push('awake');
+
+      const candidates = [];
+      for (const name of names) {
+        for (const ext of ['jpg', 'webp', 'png', 'jpeg']) {
+          candidates.push(`${base}/${name}.${ext}`);
         }
-      ];
-
-      overviewGrid.innerHTML = cards.map(card => `
-        <article class="stat-card">
-          <div class="stat-label">${escapeHtml(card.label)}</div>
-          <div class="stat-value">${escapeHtml(card.value)}</div>
-          <div class="stat-note">${escapeHtml(card.note)}</div>
-        </article>
-      `).join('');
+      }
+      return candidates;
     }
 
-    function createPortrait(agent) {
-      const portrait = document.createElement('div');
-      portrait.className = 'portrait';
+    function createPortrait(agent, avatarState) {
+      const shell = document.createElement('div');
+      shell.className = `portrait-shell state-${avatarState}`;
+
+      const badge = document.createElement('div');
+      badge.className = 'avatar-state-badge';
+      badge.textContent = avatarStateIcons[avatarState] || '◌';
+
+      const fallback = document.createElement('div');
+      fallback.className = 'portrait-fallback';
+      fallback.textContent = String(agent.name || '?').slice(0, 2).toUpperCase();
+
       const img = document.createElement('img');
-      img.src = `./images/${agent.id}/awake.jpg`;
-      img.alt = `${agent.name} portrait`;
+      img.alt = `${agent.name || 'Agent'} portrait`;
       img.loading = 'lazy';
-      img.onerror = () => {
-        portrait.innerHTML = `<div class="portrait-fallback">${escapeHtml((agent.name || '?').slice(0, 2))}</div>`;
+
+      const candidates = buildAvatarCandidates(agent, avatarState);
+      let index = 0;
+      const tryNext = () => {
+        if (index >= candidates.length) {
+          if (!shell.contains(fallback)) shell.appendChild(fallback);
+          return;
+        }
+        img.src = candidates[index++];
       };
-      portrait.appendChild(img);
-      return portrait;
+
+      img.onerror = tryNext;
+      img.onload = () => {
+        if (shell.contains(fallback)) fallback.remove();
+      };
+
+      shell.appendChild(img);
+      shell.appendChild(fallback);
+      shell.appendChild(badge);
+      tryNext();
+      return shell;
     }
 
     function createTimeline(tasks) {
@@ -1008,8 +1177,12 @@
         return '<div class="empty-timeline">No recent movement logged yet.</div>';
       }
       const recent = [...tasks]
+        .filter(task => task && task.completed_at)
         .sort((a, b) => new Date(b.completed_at || 0) - new Date(a.completed_at || 0))
         .slice(0, 3);
+      if (!recent.length) {
+        return '<div class="empty-timeline">No timestamped activity available.</div>';
+      }
       return `<ol class="timeline-list">${recent.map(task => `
         <li class="timeline-item">
           <div class="timeline-marker"></div>
@@ -1021,10 +1194,140 @@
       `).join('')}</ol>`;
     }
 
+    function deriveBoardMetrics(agents, data, fetchMeta) {
+      const lastUpdated = data.last_updated || null;
+      const telemetryFreshness = getFreshnessCopy(lastUpdated);
+      const onlineStatuses = ['awake', 'working', 'standby', 'dreaming'];
+      const online = agents.filter(agent => onlineStatuses.includes(String(agent.status || '').toLowerCase())).length;
+      const active = agents.filter(agent => ['awake', 'working'].includes(String(agent.status || '').toLowerCase())).length;
+      const degraded = agents.filter(agent => evaluateOperationalState(agent) === 'degraded').length;
+      const offline = agents.filter(agent => evaluateOperationalState(agent) === 'offline').length;
+      const operational = agents.filter(agent => evaluateOperationalState(agent) === 'operational').length;
+      const activeBriefs = agents.filter(isActiveBrief).length;
+      const recentTasks24h = agents.reduce((sum, agent) => sum + getRecentTaskCount(agent), 0);
+      const staleAgents = agents.filter(agent => getFreshnessLevel(agent.last_seen) !== 'fresh');
+      const oldestStaleAgent = staleAgents
+        .filter(agent => agent.last_seen)
+        .sort((a, b) => new Date(a.last_seen).getTime() - new Date(b.last_seen).getTime())[0] || null;
+
+      let overall = 'Operational';
+      let overallState = 'operational';
+      let sub = `${active} in motion, ${online} reachable, ${recentTasks24h} logged in the last 24 hours.`;
+
+      if (telemetryFreshness.level === 'critical') {
+        overall = 'Stale telemetry';
+        overallState = 'offline';
+        sub = 'The board is still rendering, but the feed is old enough that live presence should not be trusted.';
+      } else if (offline > 0) {
+        overall = 'Mixed readiness';
+        overallState = 'degraded';
+        sub = `${offline} offline or paused, ${degraded} constrained, ${active} still carrying load.`;
+      } else if (degraded > 0 || telemetryFreshness.level === 'warning') {
+        overall = 'Degraded';
+        overallState = 'degraded';
+        sub = `${degraded} units below full tolerance. Treat timings as delayed until the next clean sync.`;
+      }
+
+      return {
+        counts: { total: agents.length, online, active, operational, degraded, offline, activeBriefs, recentTasks24h },
+        staleAgents,
+        oldestStaleAgent,
+        telemetryFreshness,
+        overall,
+        overallState,
+        sub,
+        fetchMeta,
+      };
+    }
+
+    function renderSignals(metrics, dataSource) {
+      const fetchMs = Number.isFinite(metrics.fetchMeta?.durationMs) ? `${Math.round(metrics.fetchMeta.durationMs)} ms` : '--';
+      const sourceLabel = dataSource === 'api' ? 'Public status API' : 'Local snapshot';
+      const oldestStale = metrics.oldestStaleAgent
+        ? `${metrics.oldestStaleAgent.name} · ${relativeOnly(metrics.oldestStaleAgent.last_seen).replace(/^Updated\s+/i, '')}`
+        : 'None';
+
+      const cards = [
+        {
+          label: 'Fetch latency',
+          value: fetchMs,
+          note: dataSource === 'api' ? 'Measured in the browser from request start to payload read.' : 'Snapshot fetch measured locally in the browser.'
+        },
+        {
+          label: 'Data source',
+          value: sourceLabel,
+          note: dataSource === 'api' ? 'Using the public HTTPS proxy.' : 'Fallback file loaded because the live endpoint did not answer.'
+        },
+        {
+          label: 'Oldest stale agent',
+          value: oldestStale,
+          note: metrics.staleAgents.length ? `${pluralize(metrics.staleAgents.length, 'agent')} need a fresher heartbeat.` : 'All tracked agents are within the freshness window.'
+        }
+      ];
+
+      signalGrid.innerHTML = cards.map(card => `
+        <article class="signal-card">
+          <div class="metric-label">${escapeHtml(card.label)}</div>
+          <div class="signal-value">${escapeHtml(card.value)}</div>
+          <div class="signal-note">${escapeHtml(card.note)}</div>
+        </article>
+      `).join('');
+
+      const rowSignals = [
+        `${metrics.counts.activeBriefs} live briefs`,
+        `${metrics.counts.recentTasks24h} tasks in 24h`,
+        metrics.staleAgents.length ? `${metrics.staleAgents.length} stale contacts` : 'No stale contacts'
+      ];
+
+      signalRow.innerHTML = rowSignals.map(text => `<div class="signal-chip"><span class="signal-dot"></span><span>${escapeHtml(text)}</span></div>`).join('');
+    }
+
+    function renderOverview(metrics) {
+      const cards = [
+        {
+          label: 'Agents online',
+          value: metrics.counts.online,
+          note: `${metrics.counts.active} awake or actively carrying work.`
+        },
+        {
+          label: 'Operational',
+          value: metrics.counts.operational,
+          note: 'Healthy and clear to run at full pace.'
+        },
+        {
+          label: 'Degraded',
+          value: metrics.counts.degraded,
+          note: 'Reachable, but under drag, delay, or reduced tolerance.'
+        },
+        {
+          label: 'Offline',
+          value: metrics.counts.offline,
+          note: 'Paused, cold, or not currently reachable.'
+        },
+        {
+          label: 'Recent output',
+          value: metrics.counts.recentTasks24h,
+          note: 'Tasks logged in the most recent 24-hour window.'
+        }
+      ];
+
+      overviewGrid.innerHTML = cards.map(card => `
+        <article class="stat-card">
+          <div class="metric-label">${escapeHtml(card.label)}</div>
+          <div class="stat-value">${escapeHtml(card.value)}</div>
+          <div class="stat-note">${escapeHtml(card.note)}</div>
+        </article>
+      `).join('');
+    }
+
     function renderAgents(agents) {
       agentGrid.innerHTML = '';
 
       const ordered = [...agents].sort((a, b) => {
+        const aFreshness = getFreshnessLevel(a.last_seen);
+        const bFreshness = getFreshnessLevel(b.last_seen);
+        const staleDiff = ({ critical: 2, warning: 1, fresh: 0 }[bFreshness] || 0) - ({ critical: 2, warning: 1, fresh: 0 }[aFreshness] || 0);
+        if (staleDiff !== 0) return staleDiff;
         const stateDiff = (statusPriority[String(b.status || '').toLowerCase()] ?? -1) - (statusPriority[String(a.status || '').toLowerCase()] ?? -1);
         if (stateDiff !== 0) return stateDiff;
         const healthDiff = (healthPriority[String(b.health || '').toLowerCase()] ?? -1) - (healthPriority[String(a.health || '').toLowerCase()] ?? -1);
@@ -1036,99 +1339,178 @@
         const fragment = template.content.cloneNode(true);
         const card = fragment.querySelector('.agent-card');
         const statePill = fragment.querySelector('.state-pill');
+        const healthBand = fragment.querySelector('.health-band');
+        const freshnessLevel = getFreshnessLevel(agent.last_seen);
+        const avatarState = evaluateAvatarState(agent, freshnessLevel);
         const operationalState = evaluateOperationalState(agent);
-        const state = humanize(agent.status);
-        const health = humanize(agent.health);
+        const recentCount = getRecentTaskCount(agent);
+        const readiness = freshnessLevel === 'fresh'
+          ? 'Contact is within the live freshness window.'
+          : freshnessLevel === 'warning'
+            ? 'Contact is aging. Read this as a delayed snapshot.'
+            : 'Contact is stale. Presence should be treated as uncertain.';
 
         card.classList.remove('operational', 'degraded', 'offline');
         card.classList.add(operationalState);
 
-        fragment.querySelector('.portrait').replaceWith(createPortrait(agent));
+        statePill.classList.remove('state-working', 'state-standby', 'state-dreaming', 'state-degraded', 'state-offline');
+        statePill.classList.add(`state-${avatarState}`);
+        if (avatarState === 'working') statePill.classList.add('active');
+
+        healthBand.style.color = operationalState === 'operational'
+          ? 'var(--ok)'
+          : operationalState === 'degraded'
+            ? 'var(--warn)'
+            : 'var(--danger)';
+        fragment.querySelector('.health-band-strength span').style.width = `${getHealthStrength(agent)}%`;
+
+        const portraitShell = fragment.querySelector('.portrait-shell');
+        portraitShell.replaceWith(createPortrait(agent, avatarState));
         fragment.querySelector('.agent-name').textContent = agent.name || 'Unknown';
         fragment.querySelector('.agent-role').textContent = agent.role || 'Unassigned';
         fragment.querySelector('.agent-model').textContent = agent.model || 'Model unspecified';
-        fragment.querySelector('.state-pill-text').textContent = state;
-        fragment.querySelector('.health-value').textContent = health;
-        fragment.querySelector('.specialty').textContent = agent.specialty || 'No specialty recorded';
-        fragment.querySelector('.meta-task').textContent = agent.current_task || 'Idle';
-        fragment.querySelector('.meta-last-seen').textContent = prettyDate(agent.last_seen, true);
+        fragment.querySelector('.state-pill-text').textContent = avatarState === 'working' && String(agent.status || '').toLowerCase() === 'awake'
+          ? 'Working'
+          : humanize(avatarState);
+        fragment.querySelector('.health-value').textContent = humanize(agent.health);
+        fragment.querySelector('.health-copy').textContent = agent.specialty || 'No specialty recorded';
+        fragment.querySelector('.meta-task').innerHTML = isActiveBrief(agent)
+          ? `<strong>${escapeHtml(agent.current_task)}</strong>`
+          : 'No active brief logged.';
+        fragment.querySelector('.meta-last-seen').innerHTML = `<strong>${escapeHtml(prettyDate(agent.last_seen, true))}</strong>`;
+        fragment.querySelector('.meta-readiness').textContent = readiness;
+        fragment.querySelector('.meta-recent-count').textContent = recentCount
+          ? `${pluralize(recentCount, 'task')} recorded in the last 24 hours.`
+          : 'No tasks recorded in the last 24 hours.';
         fragment.querySelector('.meta-notes').textContent = agent.notes || 'No notes on file.';
         fragment.querySelector('.timeline-content').innerHTML = createTimeline(agent.recent_tasks);
-
-        if (['awake', 'working'].includes(String(agent.status || '').toLowerCase())) {
-          statePill.classList.add('active');
-        }
 
         agentGrid.appendChild(fragment);
       }
     }
 
-    // Public HTTPS status API proxying the latest committed status feed.
-    const API_URL = 'https://tools.summitforgelabs.com/api/status';
-    const FALLBACK_URL = './agent-status.json';
-    const POLL_INTERVAL_MS = 30000;
+    async function fetchJson(url) {
+      const startedAt = performance.now();
+      const response = await fetch(url, { cache: 'no-store' });
+      const durationMs = performance.now() - startedAt;
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      const data = await response.json();
+      return { data, durationMs };
+    }
 
     async function loadData() {
       try {
-        if (!API_URL) throw new Error('Live telemetry endpoint not configured');
-        const response = await fetch(API_URL, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`API HTTP ${response.status}`);
-        const data = await response.json();
-        return { ...data, __source: 'api' };
+        const live = await fetchJson(API_URL);
+        return { ...live.data, __source: 'api', __fetchMeta: { durationMs: live.durationMs } };
       } catch (apiErr) {
-        // Fallback to static JSON if live API is unreachable
-        const response = await fetch(FALLBACK_URL, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        return { ...data, __source: 'fallback' };
+        const fallback = await fetchJson(FALLBACK_URL);
+        return {
+          ...fallback.data,
+          __source: 'fallback',
+          __fetchMeta: { durationMs: fallback.durationMs, fallbackReason: apiErr?.message || 'Live API unavailable' }
+        };
       }
+    }
+
+    function setChipState(element, state) {
+      element.classList.remove('live', 'warn', 'offline');
+      element.classList.add(state);
     }
 
     function renderBoard(data) {
       const agents = Array.isArray(data.agents) ? data.agents : [];
-      const summary = overallSummary(agents);
-      const lastUpdated = data.last_updated ? new Date(data.last_updated) : null;
+      const metrics = deriveBoardMetrics(agents, data, data.__fetchMeta || {});
       const dataSource = data.__source === 'api' ? 'api' : 'fallback';
+      const overallWell = document.getElementById('overallStatusWell');
+      const freshnessWell = document.getElementById('freshnessWell');
+      const liveChip = document.getElementById('liveChip');
+      const staleChip = document.getElementById('staleChip');
 
-      document.getElementById('overallStatusText').textContent = summary.overall;
-      document.getElementById('overallStatusSub').textContent = summary.sub;
-      document.getElementById('agentCountChip').textContent = `${summary.counts.total} agents tracked`;
+      overallWell.classList.remove('operational', 'degraded', 'offline');
+      overallWell.classList.add(metrics.overallState);
+
+      freshnessWell.classList.remove('operational', 'degraded', 'offline');
+      freshnessWell.classList.add(
+        metrics.telemetryFreshness.level === 'fresh'
+          ? 'operational'
+          : metrics.telemetryFreshness.level === 'warning'
+            ? 'degraded'
+            : 'offline'
+      );
+
+      document.getElementById('overallStatusText').textContent = metrics.overall;
+      document.getElementById('overallStatusSub').textContent = metrics.sub;
+      document.getElementById('freshnessText').textContent = metrics.telemetryFreshness.title;
+      document.getElementById('freshnessSub').textContent = data.last_updated
+        ? `${prettyDate(data.last_updated, true)}. ${metrics.telemetryFreshness.note}`
+        : metrics.telemetryFreshness.note;
+      document.getElementById('agentCountChip').textContent = `${metrics.counts.total} agents tracked`;
+
+      setChipState(liveChip, dataSource === 'api' ? 'live' : 'warn');
       document.getElementById('liveBadgeText').textContent = dataSource === 'api'
-        ? (summary.counts.active > 0 ? 'Status API online' : 'Status API ready')
-        : 'Snapshot mode';
-      document.getElementById('lastUpdatedText').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
-        ? relativeOnly(lastUpdated.toISOString())
-        : '--';
-      document.getElementById('lastUpdatedSub').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
-        ? prettyDate(lastUpdated.toISOString(), true)
-        : 'Awaiting first telemetry stamp.';
-      document.getElementById('footerNote').textContent = lastUpdated && !Number.isNaN(lastUpdated.getTime())
-        ? (dataSource === 'api'
-          ? `Status API sync ${prettyDate(lastUpdated.toISOString(), true)}.`
-          : `Snapshot sync ${prettyDate(lastUpdated.toISOString(), true)}.`)
+        ? 'Status API online'
+        : 'Snapshot fallback';
+
+      const staleState = metrics.telemetryFreshness.level === 'fresh'
+        ? 'live'
+        : metrics.telemetryFreshness.level === 'warning'
+          ? 'warn'
+          : 'offline';
+      setChipState(staleChip, staleState);
+      document.getElementById('staleChipText').textContent = metrics.telemetryFreshness.level === 'fresh'
+        ? 'Feed within live window'
+        : metrics.telemetryFreshness.level === 'warning'
+          ? 'Feed aging'
+          : 'Feed stale';
+
+      document.getElementById('calloutTitle').textContent = metrics.overall;
+      document.getElementById('calloutCopy').textContent = metrics.oldestStaleAgent
+        ? `${metrics.staleAgents.length} contacts are aging. Oldest stale unit: ${metrics.oldestStaleAgent.name}, last seen ${relativeOnly(metrics.oldestStaleAgent.last_seen).replace(/^Updated\s+/i, '')}.`
+        : `No stale contacts right now. Last board update ${data.last_updated ? relativeOnly(data.last_updated).replace(/^Updated\s+/i, '') : 'is unavailable'}.`;
+
+      document.getElementById('footerNote').textContent = data.last_updated
+        ? `${dataSource === 'api' ? 'Status API' : 'Snapshot'} sync ${prettyDate(data.last_updated, true)}.`
         : 'Board standing by.';
 
-      renderOverview(summary.counts);
+      renderSignals(metrics, dataSource);
+      renderOverview(metrics);
       renderAgents(agents);
     }
 
     function renderError(error) {
       document.getElementById('overallStatusText').textContent = 'Unavailable';
-      document.getElementById('overallStatusSub').textContent = 'Telemetry link failed before the board could lock in.';
-      document.getElementById('lastUpdatedSub').textContent = error.message || 'Unknown error';
-      overviewGrid.innerHTML = `
-        <article class="stat-card">
-          <div class="stat-label">Signal break</div>
-          <div class="stat-value">--</div>
-          <div class="stat-note">Verify agent-status.json is reachable over HTTP(S). GitHub Pages is supported. Direct file:// fetch is often blocked by the browser.</div>
+      document.getElementById('overallStatusSub').textContent = 'Telemetry could not be fetched from the API or the local snapshot.';
+      document.getElementById('freshnessText').textContent = 'Link failed';
+      document.getElementById('freshnessSub').textContent = error.message || 'Unknown error';
+      document.getElementById('calloutTitle').textContent = 'Board failed to come online';
+      document.getElementById('calloutCopy').textContent = 'Serve this page over HTTP(S). Direct file access often blocks fetch in the browser.';
+      document.getElementById('footerNote').textContent = 'Telemetry link down.';
+
+      signalGrid.innerHTML = `
+        <article class="signal-card">
+          <div class="metric-label">Signal break</div>
+          <div class="signal-value">--</div>
+          <div class="signal-note">${escapeHtml(error.message || 'Unknown error')}</div>
         </article>
       `;
+
+      overviewGrid.innerHTML = `
+        <article class="stat-card">
+          <div class="metric-label">Recovery hint</div>
+          <div class="stat-value">HTTP</div>
+          <div class="stat-note">If this file was opened directly from disk, run a local server or GitHub Pages so fetch can read agent-status.json.</div>
+        </article>
+      `;
+
+      signalRow.innerHTML = '';
       agentGrid.innerHTML = `
         <article class="agent-card offline">
           <div class="agent-inner">
-            <div class="section-kicker">Telemetry fault</div>
-            <div class="roster-title" style="font-size: 1.2rem; margin: 0;">Board failed to come online</div>
-            <div class="hero-copy" style="margin: 0; max-width: none; font-size: 14px;">${escapeHtml(error.message || 'Unknown error')}. If this page was opened directly from disk, serve it through a local HTTP server or GitHub Pages so fetch can read <code>agent-status.json</code>.</div>
+            <div class="card-kicker">Telemetry fault</div>
+            <div class="callout-title" style="margin: 2px 0 0;">Status board unavailable</div>
+            <div class="callout-copy">${escapeHtml(error.message || 'Unknown error')}.</div>
           </div>
         </article>
       `;
@@ -1138,8 +1520,8 @@
       try {
         const data = await loadData();
         renderBoard(data);
-      } catch (err) {
-        renderError(err);
+      } catch (error) {
+        renderError(error);
       }
     }
 
