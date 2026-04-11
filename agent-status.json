@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T07:30:54.063Z",
+  "last_updated": "2026-04-11T07:36:01.336Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-11T07:30:54.063Z",
+      "last_seen": "2026-04-11T07:36:01.336Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-11T07:30:54.063Z"
+          "completed_at": "2026-04-11T07:36:01.336Z"
         },
         {
           "task": "Status Page Sprint Review",
@@ -189,9 +189,9 @@
       "role": "AI Monetization",
       "specialty": "Revenue opportunity identification and feasibility scoring",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "degraded",
-      "current_task": "Daily monetization brief completed",
+      "current_task": null,
       "last_seen": "2026-04-11T06:04:14.550Z",
       "notes": "TEAM.md says paused, but the scheduled Ledger brief is still running live. Docs/config need reconciliation.",
       "recent_tasks": [
