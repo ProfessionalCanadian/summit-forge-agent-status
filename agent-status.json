@@ -59,9 +59,9 @@
       "role": "Coding Agent",
       "specialty": "Implementation, refactors, and technical precision",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "good",
-      "current_task": "Build",
+      "current_task": null,
       "last_seen": "2026-04-11T20:16:30.949Z",
       "notes": "",
       "recent_tasks": [
@@ -85,9 +85,9 @@
       "role": "Security & Compliance",
       "specialty": "Audit, risk assessment, and policy enforcement",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "good",
-      "current_task": "Review",
+      "current_task": null,
       "last_seen": "2026-04-11T20:16:54.829Z",
       "notes": "",
       "recent_tasks": [
