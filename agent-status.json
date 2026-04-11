@@ -163,9 +163,9 @@
       "role": "QA & Verification",
       "specialty": "Independent output review and adversarial testing",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "good",
-      "current_task": "QA",
+      "current_task": null,
       "last_seen": "2026-04-11T20:17:57.704Z",
       "notes": "",
       "recent_tasks": [
