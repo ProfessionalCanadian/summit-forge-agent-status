@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T11:35:28.615Z",
+  "last_updated": "2026-04-12T12:30:28.566Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-12T11:35:28.615Z",
+      "last_seen": "2026-04-12T12:30:28.566Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-12T11:35:28.615Z"
+          "completed_at": "2026-04-12T12:30:28.566Z"
         },
         {
           "task": "Review Sfl Prompt V2",
@@ -189,12 +189,16 @@
       "role": "AI Monetization",
       "specialty": "Revenue opportunity identification and feasibility scoring",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "awake",
       "health": "degraded",
-      "current_task": null,
-      "last_seen": "2026-04-11T12:30:24.636Z",
+      "current_task": "Daily monetization brief completed",
+      "last_seen": "2026-04-12T12:30:17.936Z",
       "notes": "TEAM.md says paused, but the scheduled Ledger brief is still running live. Docs/config need reconciliation.",
       "recent_tasks": [
+        {
+          "task": "Daily monetization brief completed",
+          "completed_at": "2026-04-12T12:30:17.936Z"
+        },
         {
           "task": "Daily monetization brief completed",
           "completed_at": "2026-04-11T12:30:24.636Z"
@@ -202,10 +206,6 @@
         {
           "task": "Brand Interview Input",
           "completed_at": "2026-04-11T08:49:38.754Z"
-        },
-        {
-          "task": "Scheduled Brief 2026 04 11 0201",
-          "completed_at": "2026-04-11T06:04:14.550Z"
         }
       ]
     }
