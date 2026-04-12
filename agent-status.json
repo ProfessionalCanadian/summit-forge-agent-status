@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T23:27:14.189Z",
+  "last_updated": "2026-04-12T23:33:00.141Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-12T23:27:14.189Z",
+      "last_seen": "2026-04-12T23:33:00.141Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-12T23:27:14.189Z"
+          "completed_at": "2026-04-12T23:33:00.141Z"
         },
         {
           "task": "Review Sfl Prompt V2",
@@ -111,9 +111,9 @@
       "role": "Operations & Documentation",
       "specialty": "Record-keeping, changelogs, and operational truth",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "standby",
       "health": "good",
-      "current_task": "End-of-day pass completed",
+      "current_task": null,
       "last_seen": "2026-04-12T22:02:59.221Z",
       "notes": "",
       "recent_tasks": [
