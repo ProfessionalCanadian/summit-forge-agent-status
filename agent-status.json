@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T06:41:47.937Z",
+  "last_updated": "2026-04-12T07:00:28.542Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-12T06:41:47.937Z",
+      "last_seen": "2026-04-12T07:00:28.542Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-12T06:41:47.937Z"
+          "completed_at": "2026-04-12T07:00:28.542Z"
         },
         {
           "task": "Review Sfl Prompt V2",
@@ -85,12 +85,16 @@
       "role": "Security & Compliance",
       "specialty": "Audit, risk assessment, and policy enforcement",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T20:16:54.829Z",
+      "current_task": "Daily security audit completed",
+      "last_seen": "2026-04-12T07:00:28.295Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Daily security audit completed",
+          "completed_at": "2026-04-12T07:00:28.295Z"
+        },
         {
           "task": "Review",
           "completed_at": "2026-04-11T20:16:54.829Z"
@@ -98,10 +102,6 @@
         {
           "task": "Review Sfl Prompt V2",
           "completed_at": "2026-04-11T18:59:21.970Z"
-        },
-        {
-          "task": "Brand Interview Input",
-          "completed_at": "2026-04-11T08:49:15.791Z"
         }
       ]
     },
