@@ -163,7 +163,7 @@
       "role": "QA & Verification",
       "specialty": "Independent output review and adversarial testing",
       "model": "gpt-5.4",
-      "status": "standby",
+      "status": "dreaming",
       "health": "good",
       "current_task": null,
       "last_seen": "2026-04-11T20:17:57.704Z",
