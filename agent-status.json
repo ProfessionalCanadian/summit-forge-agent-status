@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T17:22:00.644Z",
+  "last_updated": "2026-04-12T17:26:48.453Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-12T17:22:00.644Z",
+      "last_seen": "2026-04-12T17:26:48.453Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-12T17:22:00.644Z"
+          "completed_at": "2026-04-12T17:26:48.453Z"
         },
         {
           "task": "Review Sfl Prompt V2",
@@ -59,16 +59,12 @@
       "role": "Coding Agent",
       "specialty": "Implementation, refactors, and technical precision",
       "model": "gpt-5.4",
-      "status": "awake",
+      "status": "dreaming",
       "health": "good",
-      "current_task": "Build Secrets Cli V1",
-      "last_seen": "2026-04-12T17:21:59.301Z",
+      "current_task": null,
+      "last_seen": "2026-04-11T20:16:30.949Z",
       "notes": "",
       "recent_tasks": [
-        {
-          "task": "Build Secrets Cli V1",
-          "completed_at": "2026-04-12T17:21:59.301Z"
-        },
         {
           "task": "Build",
           "completed_at": "2026-04-11T20:16:30.949Z"
@@ -76,6 +72,10 @@
         {
           "task": "Review Sfl Prompt V2",
           "completed_at": "2026-04-11T18:58:57.275Z"
+        },
+        {
+          "task": "Sfl 3 Directions",
+          "completed_at": "2026-04-11T16:40:25.796Z"
         }
       ]
     },
