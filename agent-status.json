@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T15:15:28.696Z",
+  "last_updated": "2026-04-12T16:00:23.387Z",
   "agents": [
     {
       "id": "oscar",
@@ -10,12 +10,12 @@
       "status": "awake",
       "health": "good",
       "current_task": "Coordinating active operations",
-      "last_seen": "2026-04-12T15:15:28.696Z",
+      "last_seen": "2026-04-12T16:00:00.194Z",
       "notes": "",
       "recent_tasks": [
         {
           "task": "Coordinating active operations",
-          "completed_at": "2026-04-12T15:15:28.696Z"
+          "completed_at": "2026-04-12T16:00:00.194Z"
         },
         {
           "task": "Review Sfl Prompt V2",
@@ -111,12 +111,16 @@
       "role": "Operations & Documentation",
       "specialty": "Record-keeping, changelogs, and operational truth",
       "model": "gpt-5.4",
-      "status": "dreaming",
+      "status": "awake",
       "health": "good",
-      "current_task": null,
-      "last_seen": "2026-04-11T22:02:46.622Z",
+      "current_task": "Midday sync completed",
+      "last_seen": "2026-04-12T16:00:23.387Z",
       "notes": "",
       "recent_tasks": [
+        {
+          "task": "Midday sync completed",
+          "completed_at": "2026-04-12T16:00:23.387Z"
+        },
         {
           "task": "Eod Pass",
           "completed_at": "2026-04-11T22:02:46.622Z"
@@ -124,10 +128,6 @@
         {
           "task": "End-of-day pass completed",
           "completed_at": "2026-04-11T22:00:57.236Z"
-        },
-        {
-          "task": "Log",
-          "completed_at": "2026-04-11T20:48:12.510Z"
         }
       ]
     },
